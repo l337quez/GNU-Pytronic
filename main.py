@@ -6,6 +6,7 @@ import os
 import sys
 import subprocess
 import re
+import webbrowser
 from tkinter import filedialog
 #####################################################################
 
@@ -263,7 +264,19 @@ notebook.bind("<<NotebookTabChanged>>", personalData)
 ##############################################################################
 #Pestaña About
 
-boton=Label(pestana3,text='GNU Pytronic software Desarrollado por Ronal Forero').place(x=20,y=60)
+Label(pestana3,text='GNU Pytronic software Desarrollado por Ronal Forero').place(x=20,y=60)
+Label(pestana3,text='Licencia GPL V3').place(x=20,y=80)
+
+
+
+
+def callback(event):
+    webbrowser.open_new(r"https://github.com/l337quez/GNU-Pytronic")
+
+
+link = Label(pestana3, text="GNU Pyttonics Repository", fg="blue", cursor="hand2")
+link.place(x=20,y=100)
+link.bind("<Button-1>", callback)
 
 ##############################################################################
 #Pestaña HOME
@@ -289,16 +302,16 @@ paralelo2=DoubleVar()
 #creamos demas objetos
 
 #Entry
-entry_codigo=Entry(pestana0,  width= 10, textvariable=codigo).place(x=114, y=255) #codigo del capacitor
-entry_valor=Entry(pestana0,  width= 10, state='readonly', textvariable=valor_cap).place(x=10, y=190) #capacitancia
-entry_volt=Entry(pestana0,  width= 10,state='readonly', textvariable=volts_cap).place(x=110, y=190) #voltaje
-entry_tol=Entry(pestana0,  width= 10,state='readonly', textvariable=tole_cap).place(x=210, y=190) #tolerancia
-entry_comerup=Entry(pestana0,  width= 10, state='readonly',textvariable=cap_up).place(x=330, y=240) #valor comercial disponible
-entry_comerdown=Entry(pestana0,  width= 10, state='readonly',textvariable=cap_down).place(x=330, y=270) #valor comercial por debajo
-entry_paralel1=Entry(pestana0,  width= 10,textvariable=paralelo1).place(x=10, y=360)
-entry_paralel2=Entry(pestana0,  width= 10,textvariable=paralelo2).place(x=10, y=390)
-entry_serie1=Entry(pestana0,  width= 10,textvariable=serie1).place(x=280, y=360)
-entry_serie2=Entry(pestana0,  width= 10,textvariable=serie2).place(x=280, y=390)
+entry_codigo=Entry(pestana0,  width= 10, textvariable=codigo).place(x=114, y=225) #codigo del capacitor
+entry_valor=Entry(pestana0,  width= 10, state='readonly', textvariable=valor_cap).place(x=10, y=160) #capacitancia
+entry_volt=Entry(pestana0,  width= 10,state='readonly', textvariable=volts_cap).place(x=110, y=160) #voltaje
+entry_tol=Entry(pestana0,  width= 10,state='readonly', textvariable=tole_cap).place(x=210, y=160) #tolerancia
+entry_comerup=Entry(pestana0,  width= 10, state='readonly',textvariable=cap_up).place(x=330, y=210) #valor comercial disponible
+entry_comerdown=Entry(pestana0,  width= 10, state='readonly',textvariable=cap_down).place(x=330, y=240) #valor comercial por debajo
+entry_paralel1=Entry(pestana0,  width= 10,textvariable=paralelo1).place(x=10, y=330)
+entry_paralel2=Entry(pestana0,  width= 10,textvariable=paralelo2).place(x=10, y=360)
+entry_serie1=Entry(pestana0,  width= 10,textvariable=serie1).place(x=280, y=330)
+entry_serie2=Entry(pestana0,  width= 10,textvariable=serie2).place(x=280, y=360)
 
 #entry_aproximar=Entry(ventana,  width= 8).place(x=10, y=400) #aproximar valor
 
@@ -306,27 +319,27 @@ entry_serie2=Entry(pestana0,  width= 10,textvariable=serie2).place(x=280, y=390)
 
 #Botones
 #command= lambda:calculo_cap()
-Boton_calcular=Button(pestana0, text= "Calculate", command= calculo_cap).place(x=420, y=88)
-Boton_buscar=Button(pestana0, text= "Search", command=buscar_cap).place(x=252, y=250)
+Boton_calcular=Button(pestana0, text= "Calculate", command= calculo_cap).place(x=420, y=58)
+Boton_buscar=Button(pestana0, text= "Search", command=buscar_cap).place(x=252, y=220)
 Boton_graficar=Button(pestana0, text="Graficar").place(x=410, y=600)
-Boton_guardar_data=Button(pestana0, text="Guardar DATA", state='disabled').place(x=10, y=600)
-Boton_paralelo=Button(pestana0, text= "+", command=cap_paralelo).place(x=120, y=360)
-Boton_serie=Button(pestana0, text= "+", command=cap_serie).place(x=390, y=360)
+Boton_guardar_data=Button(pestana0, text="Guardar DATA", state='disabled').place(x=10, y=570)
+Boton_paralelo=Button(pestana0, text= "+", command=cap_paralelo).place(x=120, y=330)
+Boton_serie=Button(pestana0, text= "+", command=cap_serie).place(x=390, y=330)
 
 
 
 #Labels
-label_cchino=Label(pestana0, text="Parallel Capacitors:").place(x=10, y=340)
-label_cchino=Label(pestana0, text="Serial Capacitors:").place(x=280, y=340)
-label_cchino=Label(pestana0, text="Comercial value:").place(x=10, y=255)
-label_tc=Label(pestana0, text="Type of Capacitor:").place(x=10, y=74)
-label_voltaje=Label(pestana0, text="Voltage").place(x=110, y=168)
-label_tole=Label(pestana0, text="Tolerance").place(x=210, y=168)
-label_ca=Label(pestana0, text="Capacitance").place(x=10, y=168)
-label_code=Label(pestana0, text="Capacitor code:").place(x=140, y=74)
+label_cchino=Label(pestana0, text="Parallel Capacitors:").place(x=10, y=310)
+label_cchino=Label(pestana0, text="Serial Capacitors:").place(x=280, y=310)
+label_cchino=Label(pestana0, text="Comercial value:").place(x=10, y=225)
+label_tc=Label(pestana0, text="Type of Capacitor:").place(x=10, y=44)
+label_voltaje=Label(pestana0, text="Voltage").place(x=110, y=138)
+label_tole=Label(pestana0, text="Tolerance").place(x=210, y=138)
+label_ca=Label(pestana0, text="Capacitance").place(x=10, y=138)
+label_code=Label(pestana0, text="Capacitor code:").place(x=140, y=44)
 #label dibujo de capacitor
 label_dib_cap=Label(pestana0)
-label_dib_cap.place(x=450, y=140)
+label_dib_cap.place(x=450, y=110)
 #label logo de pytronic
 #label_logo=Label(ventana, image=PhotoImage(file="Sources/pytronic.png")).place(x=1, y=1)
 
@@ -339,34 +352,34 @@ label_dib_cap.place(x=450, y=140)
 
 #combobox codigo de voltaje
 vol_combo=ttk.Combobox(pestana0, width= 3, height=3)
-vol_combo.place(x=140, y=94)
+vol_combo.place(x=140, y=64)
 vol_combo['values']=('0G','0L','0J','1A','1C','1E','1H','1J','1K','2A','2Q','2B','2C','2Z', '2D', '2P', '2E','2F','2V','2G','2W','2H','2J','3A' )
 
 
 pn_combo=ttk.Combobox(pestana0, width= 3,height=3)
-pn_combo.place(x=200, y=94)
+pn_combo.place(x=200, y=64)
 pn_combo['values']=('n','p','0','0.5','1','1.2','1.5','1.8','2','2.2','2.7','3','3.3','3.9','4','4.7','5','6','7','8','9')
 
 
 sn_combo=ttk.Combobox(pestana0, width= 2,height=3)
-sn_combo.place(x=245, y=94)
+sn_combo.place(x=245, y=64)
 sn_combo['values']=('n','p','0','1','2','3','4','5','6','7','8','9')
 
 
 cero_combo=ttk.Combobox(pestana0, width= 2,height=3)
-cero_combo.place(x=282, y=94)
+cero_combo.place(x=282, y=64)
 cero_combo['values']=('n','0','1','2','3','4','5','6','7','8','9')
 
 
 #Combobox  TOLERANCIA
 tole_combo=ttk.Combobox(pestana0, width= 2, height=3)
-tole_combo.place(x=335, y=94)
+tole_combo.place(x=335, y=64)
 tole_combo['values']=('B','C','D','E','F','G','H','J','K','M','N','P','Z')
 
 
 #Combobox  convercion pf a uf...
 combo=ttk.Combobox(pestana0, width= 2)
-combo.place(x=380, y=94)
+combo.place(x=380, y=64)
 combo['values']=('f','mf','uf','pf','nf')
 combo.current(2)
 
@@ -374,13 +387,13 @@ combo.current(2)
 
 #Combobox  convercion pf a uf imput comercial...
 in_combo=ttk.Combobox(pestana0, width= 2)
-in_combo.place(x=209, y=255)
+in_combo.place(x=209, y=225)
 in_combo['values']=('f','mf','uf','pf','nf')
 in_combo.current(3)
 
 #Combobox  convercion pf a uf ouput comercial...
 ou_combo=ttk.Combobox(pestana0, width= 2)
-ou_combo.place(x=427, y=255)
+ou_combo.place(x=427, y=225)
 ou_combo['values']=('f','mf','uf','pf','nf')
 ou_combo.current(3)
 
@@ -394,10 +407,10 @@ list_tc.insert(2,"Tamtalio")
 list_tc.insert(3,"Electrolitico")
 list_tc.insert(4,"Plastico")
 list_tc.insert(4,"Polipropileno")
-list_tc.place(x=10, y=92)
-scrollbar_list_tc= Scrollbar(pestana0, width= 10, orient="vertical")
+list_tc.place(x=10, y=62)
+scrollbar_list_tc= Scrollbar(pestana0, width= 12, orient="vertical")
 scrollbar_list_tc.config(command=list_tc.yview)
-scrollbar_list_tc.place(x=112, y=97)
+scrollbar_list_tc.place(x=112, y=67)
 list_tc.config(yscrollcommand=scrollbar_list_tc.set)
 list_tc.select_set(0)
 #list_tc.selectedindex = 0
