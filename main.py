@@ -10,38 +10,6 @@ import webbrowser
 from tkinter import filedialog
 #####################################################################
 
-global contador
-contador=0
-def select_image_cap(event):
-    global contador
-    #cambiador de imagenes IMAGEN DEL CAPACITOR, CERAMICO, Electrolitico...
-    widget=event.widget
-    selection=widget.curselection()
-
-    #colocamos la imagen del capacitor ceramico como default
-    if contador <2 :
-        p_lis_cap=('Ceramico')
-        ruta_cap=(PhotoImage(file="Sources/ceramico.png"),PhotoImage(file="Sources/poliester.png"),PhotoImage(file="Sources/tamtalio.png"),PhotoImage(file="Sources/electrolitico.png"),PhotoImage(file="Sources/plastico.png"))
-        #setiamos la label del dibujo del capacitor
-        label_dib_cap.config(image=ruta_cap[0])
-        label_dib_cap.image = ruta_cap[0]
-        grafic_tools = 1
-
-
-    contador = contador +1;
-
-    #obtenemos en string el item seleccionado en el listbox
-    piked= widget.get(selection[0])
-    #usamos una lista
-    lis_cap=['Ceramico', 'Poliester', 'Tamtalio', 'Electrolitico', 'Plastico', 'Polipropileno']
-    #buscamos en la lista el valor de piked y obtenemos la posicion
-    p_lis_cap=lis_cap.index(piked)
-    ruta_cap=(PhotoImage(file="Sources/ceramico.png"),PhotoImage(file="Sources/poliester.png"),PhotoImage(file="Sources/tamtalio.png"),PhotoImage(file="Sources/electrolitico.png"),PhotoImage(file="Sources/plastico.png"))
-    #setiamos la label del dibujo del capacitor
-    label_dib_cap.config(image=ruta_cap[p_lis_cap])
-    label_dib_cap.image = ruta_cap[p_lis_cap]
-    grafic_tools = 1 #activamos herramientas de graficacion
-
 
 #funcion para buscar valor de capacitores comerciales
 def buscar_cap():
@@ -226,19 +194,21 @@ def cap_serie ():
 #####################################################################
 #Configuracion inicial
 ventana =Tk()
-ventana.title("GNU Pytronics")
+ventana.title("GNU Pytronic")
+
+#Organizando las pestañas
 notebook=ttk.Notebook(ventana)
 notebook.pack(fill='both',expand='yes')
 pestana=ttk.Frame(notebook)
 pestana0=ttk.Frame(notebook)
 pestana1=ttk.Frame(notebook)
+#pestana2=ttk.Frame(notebook)
 pestana2=ttk.Frame(notebook)
-pestana3=ttk.Frame(notebook)
 notebook.add(pestana,text='Home')
 notebook.add(pestana0,text='Capacitors')
 notebook.add(pestana1,text='Resistors')
-notebook.add(pestana2,text='Inductors')
-notebook.add(pestana3,text='About')
+#notebook.add(pestana2,text='Inductors')
+notebook.add(pestana2,text='About')
 
 
 noteStyler = ttk.Style()
@@ -250,23 +220,73 @@ COLOR_5 = '#8A4B08'
 COLOR_6 = '#DF7401'
 noteStyler.configure("TNotebook.Tab", background="gray", foreground=COLOR_3, lightcolor=COLOR_6, borderwidth=2)
 
-
+#Funcion para saber en que pesta#a esta el usuario
 def personalData(event):
     if event.widget.index("current") == 0:
-       print("One!")
+       pestanan= 0
+       print("Home")
+    elif event.widget.index("current") == 1:
+       pestanan= 1
+       print("Capacitor")
+       #setiamos la label del dibujo del capacitor
+       defaul_c=PhotoImage(file="Sources/ceramico.png")
+       label_dib_cap.config(image=defaul_c)
+       label_dib_cap.image =defaul_c
+       grafic_tools = 1
+    elif event.widget.index("current") == 2:
+       pestanan= 2
+       print("Resistors")
     else:
-       print("Not One!")
+       pestanan= 3
+       print("About")
+    #else:
+    #   print("Not One!")
        #ttk.Frame(pestana1,os.system ('python capacitores.py'))
 
+    return
 
 notebook.bind("<<NotebookTabChanged>>", personalData)
+
+
+
+#////////////////////////////////////////////
+#Selecion de imagen del capacitor en el listbox
+
+def select_image_cap(event):
+    global contador
+    #cambiador de imagenes IMAGEN DEL CAPACITOR, CERAMICO, Electrolitico...
+    widget=event.widget
+    selection=widget.curselection()
+
+    #obtenemos en string el item seleccionado en el listbox
+    piked= widget.get(selection[0])
+    #usamos una lista
+    lis_cap=['Ceramic', 'Polyester', 'Tamtalio', 'Electrolityc', 'Mica', 'Polypropilene']
+    #buscamos en la lista el valor de piked y obtenemos la posicion
+    p_lis_cap=lis_cap.index(piked)
+    ruta_cap=(PhotoImage(file="Sources/ceramico.png"),PhotoImage(file="Sources/poliester.png"),PhotoImage(file="Sources/tamtalio.png"),PhotoImage(file="Sources/electrolitico.png"),PhotoImage(file="Sources/plastico.png"))
+    #setiamos la label del dibujo del capacitor
+    label_dib_cap.config(image=ruta_cap[p_lis_cap])
+    label_dib_cap.image = ruta_cap[p_lis_cap]
+    grafic_tools = 1 #activamos herramientas de graficacion
+
+
+
+#//////////////////////////////////////////////
+
+
+
+
+
+
+
+
 
 ##############################################################################
 #Pestaña About
 
-Label(pestana3,text='GNU Pytronic software Desarrollado por Ronal Forero').place(x=20,y=60)
-Label(pestana3,text='Licencia GPL V3').place(x=20,y=80)
-
+Label(pestana2,text='GNU Pytronic, software Desarrollado por Ing.Ronal Forero').place(x=20,y=60)
+Label(pestana2,text='Licencia GPL V3').place(x=20,y=80)
 
 
 
@@ -274,12 +294,15 @@ def callback(event):
     webbrowser.open_new(r"https://github.com/l337quez/GNU-Pytronic")
 
 
-link = Label(pestana3, text="GNU Pyttonics Repository", fg="blue", cursor="hand2")
+link = Label(pestana2, text="GNU Pyttonics Repository", fg="blue", cursor="hand2")
 link.place(x=20,y=100)
 link.bind("<Button-1>", callback)
 
 ##############################################################################
 #Pestaña HOME
+
+banner=PhotoImage(file="Sources/banner.png")
+banner_home=Label(pestana,image=banner).place(x=0, y=20)
 
 
 ##############################################################################
@@ -340,10 +363,6 @@ label_code=Label(pestana0, text="Capacitor code:").place(x=140, y=44)
 #label dibujo de capacitor
 label_dib_cap=Label(pestana0)
 label_dib_cap.place(x=450, y=110)
-#label logo de pytronic
-#label_logo=Label(ventana, image=PhotoImage(file="Sources/pytronic.png")).place(x=1, y=1)
-
-
 
 
 
@@ -401,13 +420,14 @@ ou_combo.current(3)
 
 #Listbox
 list_tc=Listbox(pestana0,width= 14, height=2)
-list_tc.insert(0,"Ceramico")
-list_tc.insert(1,"Poliester")
+list_tc.insert(0,"Ceramic")
+list_tc.insert(1,"Polyester")
 list_tc.insert(2,"Tamtalio")
-list_tc.insert(3,"Electrolitico")
-list_tc.insert(4,"Plastico")
-list_tc.insert(4,"Polipropileno")
+list_tc.insert(3,"Electrolityc")
+list_tc.insert(4,"Mica")
+list_tc.insert(4,"Polypropylene")
 list_tc.place(x=10, y=62)
+#barra de scroll para el listbox
 scrollbar_list_tc= Scrollbar(pestana0, width= 12, orient="vertical")
 scrollbar_list_tc.config(command=list_tc.yview)
 scrollbar_list_tc.place(x=112, y=67)
@@ -417,24 +437,8 @@ list_tc.select_set(0)
 list_tc.event_generate("<<ListboxSelect>>")
 list_tc.bind('<<ListboxSelect>>',select_image_cap)
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+#########################################################################
 ventana.geometry("600x450+0+0")
+#icono del software
+ventana.call('wm','iconphoto',ventana._w,PhotoImage(file='pytronics.png'))
 ventana.mainloop()
