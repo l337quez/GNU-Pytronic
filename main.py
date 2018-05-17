@@ -1,4 +1,4 @@
-
+﻿
 
 from tkinter import *
 from tkinter import ttk
@@ -476,7 +476,7 @@ Label(pestana2,text='Licencia GPL V3').place(x=20,y=80)
 
 
 def callback(event):
-    webbrowser.open_new(r"https://github.com/l337quez/GNU-Pytronic")
+    webbrowser.open_new(r"https://ronaldl337.wordpress.com/")
 
 
 link = Label(pestana2, text="GNU Pyttonics Repository", fg="blue", cursor="hand2")
@@ -709,4 +709,11 @@ list_tc.bind('<<ListboxSelect>>',select_image_cap)
 ventana.geometry("600x450+0+0")
 #icono del software
 ventana.call('wm','iconphoto',ventana._w,PhotoImage(file='pytronics.png'))
+
+#Tema tkinter para los objetos
+s=ttk.Style()
+s.theme_names()
+#"""======== if you are under win 8.1 you must see ..
+# ('winnative', 'clam', 'alt', 'default', 'classic', 'vista', 'xpnative') you can use for example 'clam' ===== """
+s.theme_use('clam')
 ventana.mainloop()

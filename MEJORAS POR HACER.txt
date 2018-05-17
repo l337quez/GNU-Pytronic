@@ -1,0 +1,5 @@
+ 
+* Mejorar instegridad con  escritorio KDE
+https://stackoverflow.com/questions/6500630/making-tk-look-like-a-native-linux-app
+
+*Mejorar dimenciones de los objetos para que se vea mejor en windows
