@@ -3,14 +3,15 @@
 pkgname=gnu-pytronic
 pkgver=0.002
 pkgrel=1
-pkgdesc="pytronic is a program developed in python 3. Basically it is a basic tool for the calculation of analog components such as resistors, capacitors and inductors, also transformers"
+pkgdesc="gnu pytronic is a program developed in python 3. Basically it is a basic tool for the calculation of analog components such as resistors, capacitors and inductors, also transformers"
 arch=('i686' 'x86_64')
 url="https://github.com/l337quez/GNU-Pytronic"
 license=('GPL3')
+source=("https://github.com/l337quez/GNU-Pytronic/tree/master/%20GNU%20Linux%20installer/${pkgname}-${pkgver}.tar.gz"
+makedepends=('git')
+depends=('python3' 'pip')
 
-#depends=('alsa-lib' 'gconf' 'gtk2' 'libcurl-compat' 'libsecret' 'libxss' 'libxtst' 'nss')
-#optdepends=('gnome-keyring')
-#source=("https://downloads.slack-edge.com/linux_releases/${pkgname}-${pkgver}-amd64.deb"
+
 #        "${pkgname}.patch")
 #sha256sums=('03b72397311f555f598028bf5ef800f7449cc76544d9f9833798fc8dafeb1df9'
 #            'c952eb32dd59beff9fc5374853b04acde4a60ed8c39934fcd0b66829455d594d')
@@ -29,11 +30,11 @@ package() {
 #    rm -rf "${pkgdir}/usr/share/lintian"
 #    rm -rf "${pkgdir}/usr/share/doc"
 
-    # Move license
-#    install -dm755 "${pkgdir}/usr/share/licenses/${pkgname}"
-#    mv "${pkgdir}/usr/lib/slack/LICENSE" "${pkgdir}/usr/share/licenses/${pkgname}"
-#    ln -s "/usr/share/licenses/${pkgname}/LICENSE" "${pkgdir}/usr/lib/slack/LICENSE"
-
+#dnos vamos al directorio de descarga del source
+  cd "${srcdir}/"
+  #Descomprimimos el archivo
+  tar xvzf ${pkgname}-${pkgver}.tar.gz -C .
+  cp -r usr ${pkgdir}
 
   cd "$pkgdir"
   install -dm 755 "$pkgdir/usr/bin/"
@@ -58,4 +59,5 @@ Type=Application
 StartupNotify=true
 Categories=Electronics;
 EOF
+
 }
