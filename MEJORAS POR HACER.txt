@@ -3,3 +3,6 @@
 https://stackoverflow.com/questions/6500630/making-tk-look-like-a-native-linux-app
 
 *Mejorar dimenciones de los objetos para que se vea mejor en windows
+
+*agregar en capacitores la opcion de escribir la capacitancia y no de el codigo, si no es comercial decir que no lo es... entonces la persona que 
+busque en la seccion de valores comerciales y luego que ingrese el valor comercial y salga el codigo
