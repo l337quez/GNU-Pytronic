@@ -239,6 +239,44 @@ def buscar_res():
 
 
 
+#Funcion de busqueda de resistores SMD
+def smd():
+	
+	
+    smd_value=res_smd.get()
+    #validamos letras minusculas
+    smd_value=smd_value.upper()
+    codeuno=smd_value[:2]
+    ceros=smd_value[2:3]
+    
+    
+    #creamos un diccionario
+    dic_ceros={'Z':'0.001','Y':'0.01','R':'0.01','X':'0.1','S':'0.1','A':'1','B':'10','H':'10','C':'100','D':'1000','E':'10000','F':'1000000'}
+	 
+
+    dic_smd={'01':'100','02':'102','03':'105','04':'107','05':'110','06':'113','07':'115','08':'118','09':'121','10':'124','11':'127','12':'130',
+			 '13':'133','14':'137', '15':'140', '16':'143', '17':'147','18':'150','19':'154','20':'158','21':'162','22':'165','23':'169','24':'174',
+			 '25':'178','26':'182', '27':'187', '28':'191', '29':'196','30':'200','31':'205','32':'210','33':'215','34':'221','35':'226','36':'232',
+			 '37':'237','38':'243', '39':'249', '40':'255', '41':'261','42':'267','43':'274','44':'280','45':'287','46':'294','47':'301','48':'309',
+             '49':'316','50':'324', '51':'332', '52':'340', '53':'348','54':'357','55':'365','56':'374','57':'383','58':'392','59':'402','60':'412',
+			 '61':'422','62':'432', '63':'442', '64':'453', '65':'464','66':'475','67':'487','68':'499','69':'511','70':'523','71':'536','72':'549',
+			 '73':'562','74':'567', '75':'590', '76':'604', '77':'619','78':'634','79':'649','80':'665','81':'681','82':'698','83':'715','84':'732',
+			 '85':'750','86':'768', '87':'787', '88':'806', '89':'825','90':'845','91':'866','92':'887','93':'909','94':'931','95':'953','96':'976'
+
+			}   
+    
+    codeuno=dic_smd.get(codeuno)
+    ceros=dic_ceros.get(ceros)
+    valor=int(codeuno)*int(ceros)
+    valor_smd=str(valor)+ 'Ω'
+    #setiamos la  entry de smd
+    res_smd.set(valor_smd)
+
+
+	
+	
+	
+
 #Funcion calcular el codigo de colores
 def calculo_color():
     #obtenmos el valor numerico
@@ -254,7 +292,6 @@ def calculo_color():
     ceros=str(10**int(ceros))
     # ceros=str(ceros)
     ceros=str(len(ceros[1:]))
-    print(type(ceros))
 
 
 
@@ -265,28 +302,9 @@ def calculo_color():
     #     ceros=10**ceros
 
 
-
-    # #buscamos los ceros
-    # list_oh=[]
-    # p_band=0
-    # p_string=0 #posicion del cero en la cadena
-    # for oh in valor_num:
-    #     if oh=='0':
-    #         p_string=p_string+1
-    #         lista_ceros=list_oh.append(p_band)
-    # #Posicion de la banda
-    #     p_band=p_band+1
-    # list_oh_1=[int(item) for item in list_oh]
-    # print(len(list_oh))
-    # print(list_oh)
-
-
-
-
-
     #creamos un diccionario
     #Esta vez buscamos el numero y el contenido es el color
-    color_value={'1':'brown','2':'red','3':'orange','4':'yellow','5':'green','6':'blue','violet':'7','gray':'8','white':'9','black':'0'}
+    color_value={'1':'brown','2':'red','3':'orange','4':'yellow','5':'green','6':'blue','violet':'7','gray':'8','9':'white','0':'black'}
 
     tole_res={'N/A':'20%','Silver':'10%','Golden':'5%','Red':'2%','Brown':'1%','Green':'0.5%', 'Blue':'0.25%','Violet':'0.10%','Gray':'0.05%'}
 
@@ -302,7 +320,7 @@ def calculo_color():
     label_ban2.configure(bg=banda2)
     label_ban3.configure(bg=banda3)
     # label_ban5.configure(bg=banda5)
-
+    
 
 
 
@@ -457,12 +475,6 @@ def select_image_cap(event):
 
 
 
-#//////////////////////////////////////////////
-
-
-
-
-
 
 
 
@@ -470,17 +482,26 @@ def select_image_cap(event):
 ##############################################################################
 #Pestaña About
 
-Label(pestana2,text='GNU Pytronic, software Desarrollado por Ing.Ronal Forero').place(x=20,y=60)
-Label(pestana2,text='Licencia GPL V3').place(x=20,y=80)
+Label(pestana2,text='GNU Pytronic',font='Helvetica 10 bold').place(x=20,y=60)
+Label(pestana2,text=', software developed by Ing.Ronal Forero',font='Helvetica 10').place(x=108,y=60)
+Label(pestana2,text='License:',font='Helvetica 10 bold').place(x=20,y=80)
+Label(pestana2,text='GPL V3',font='Helvetica 10').place(x=80,y=80)
+Label(pestana2,text='Version:',font='Helvetica 10 bold').place(x=20,y=100)
+Label(pestana2,text='1.0',font='Helvetica 10').place(x=80,y=100)
+Label(pestana2,text='Version in development:',font='Helvetica 10 bold').place(x=20,y=120)
+Label(pestana2,text='Alpha 1.1',font='Helvetica 10').place(x=180,y=120)
+Label(pestana2,text='Contact:',font='Helvetica 10 bold').place(x=20,y=140)
+Label(pestana2,text='L337.ronald@gmail.com',font='Helvetica 10').place(x=80,y=140)
+
 
 
 
 def callback(event):
-    webbrowser.open_new(r"https://ronaldl337.wordpress.com/")
+    webbrowser.open_new(r"https://ronaldl337.wordpress.com/tag/gnu-pytronic/")
 
 
 link = Label(pestana2, text="GNU Pyttonics Repository", fg="blue", cursor="hand2")
-link.place(x=20,y=100)
+link.place(x=20,y=160)
 link.bind("<Button-1>", callback)
 
 ##############################################################################
@@ -507,13 +528,14 @@ serie2=DoubleVar()
 paralelo1=DoubleVar()
 paralelo2=DoubleVar()
 
+
 #variables de resistores
 code_res =StringVar() #valor de la resistencia comercial
 resistor_value= StringVar()
 res_up=StringVar()
 res_down=StringVar()
 combo_tole=IntVar() #para setear el combobox de la tolerancia
-
+res_smd=StringVar() #para valor de resistor SMD
 
 #creamos demas objetos
 
@@ -533,7 +555,7 @@ entry_serie2=Entry(pestana0,  width= 10,textvariable=serie2).place(x=280, y=360)
 #Entry Resistors
 entry_codigo=Entry(pestana1,  width= 10, textvariable=code_res).place(x=114, y=255) #codigo del capacitor
 Entry(pestana1,  width= 10, textvariable=resistor_value).place(x=295, y=64) #value code
-Entry(pestana1,  width= 10).place(x=90, y=180) #value code SMD
+Entry(pestana1,  width= 14, textvariable=res_smd).place(x=90, y=180) #value code SMD
 Entry(pestana1,  width= 10, state='readonly',textvariable=res_up).place(x=330, y=240) #valor comercial disponible
 Entry(pestana1,  width= 10, state='readonly',textvariable=res_down).place(x=330, y=270) #valor comercial por debajo
 paralel1=Entry(pestana1,  width= 10).place(x=10, y=360)
@@ -556,7 +578,7 @@ Boton_serie=Button(pestana0, text= "+", command=cap_serie).place(x=390, y=330)
 #Botones resistores
 Button(pestana1, text= "Calculate", command= calculo_res).place(x=464, y=104) #Boton calcular
 Button(pestana1, text= "Solve", command= calculo_color).place(x=464, y=60) #Boton solve value resistor
-Button(pestana1, text= "Solve").place(x=200, y=176) #Boton solve value resistor SMD
+Button(pestana1, text= "Solve",command= smd).place(x=230, y=176) #Boton solve value resistor SMD
 Button(pestana1, text= "Search", command=buscar_res).place(x=240, y=250) #Boton buscar
 Button(pestana1, text= "+", command=buscar_res).place(x=120, y=360) #Boton_paralelo
 Button(pestana1, text= "+", command=buscar_res).place(x=390, y=360) #Boton serie
@@ -704,6 +726,7 @@ list_tc.select_set(0)
 #list_tc.selectedindex = 0
 list_tc.event_generate("<<ListboxSelect>>")
 list_tc.bind('<<ListboxSelect>>',select_image_cap)
+
 
 #########################################################################
 ventana.geometry("600x450+0+0")
