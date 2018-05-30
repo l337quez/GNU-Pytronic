@@ -495,13 +495,18 @@ Label(pestana2,text='L337.ronald@gmail.com',font='Helvetica 10').place(x=80,y=14
 
 
 
-
 def callback(event):
     webbrowser.open_new(r"https://ronaldl337.wordpress.com/tag/gnu-pytronic/")
 
-
 link = Label(pestana2, text="GNU Pyttonics Repository", fg="blue", cursor="hand2")
 link.place(x=20,y=160)
+link.bind("<Button-1>", callback)
+
+def callback(event):
+    webbrowser.open_new(r"https://github.com/l337quez/GNU-Pytronic/raw/master/other%20Sources/manual.odt")
+
+link = Label(pestana2, text="User manual", fg="blue", cursor="hand2")
+link.place(x=20,y=180)
 link.bind("<Button-1>", callback)
 
 ##############################################################################
