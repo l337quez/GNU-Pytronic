@@ -21,3 +21,13 @@ The graphical interface is modified, placing tabs and the window is resized.
 <p align="center"><img src="https://github.com/l337quez/GNU-Pytronic/blob/master/Sources/versiones/V%200.002.png?raw=true"></p>  
 
 In this version several errors are corrected. The software has an icon thanks to the collaboration of Pablo Lopez <yeti@disroot.org>. The home tab has a renewal.
+
+## version beta 0.1
+### 
+
+<p> En esta version se arreglaron varios componentes que no estaban funcionando
+correctamente, se le agrego un estilo a la estica del software, se añade el
+autocompletado, de esta manera hacer mas facil las busquedas, se actualizo
+la busqueda de rsistores SMD, todavia no contiene todas las nomenclaturas, pero si las basicas.
+Se agregan informacion del software en el instalador de windows.
+</p>
