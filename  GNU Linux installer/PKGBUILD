@@ -30,7 +30,7 @@ package() {
 #    rm -rf "${pkgdir}/usr/share/lintian"
 #    rm -rf "${pkgdir}/usr/share/doc"
 
-#dnos vamos al directorio de descarga del source
+#nos vamos al directorio de descarga del source
   cd "${srcdir}/"
   #Descomprimimos el archivo
   tar xvzf ${pkgname}-${pkgver}.tar.gz -C .
