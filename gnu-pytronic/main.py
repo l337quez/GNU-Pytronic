@@ -323,8 +323,7 @@ def smd():
 
 			}   
     
-
-    
+ 
 
     #validamos que lo ingresado sea numeros
     digit=ceros.isdigit()
@@ -332,6 +331,7 @@ def smd():
     if digit==False:
 	    codeuno=dic_smd.get(codeuno)
 	    ceros=dic_ceros.get(ceros)
+	    print(type(ceros))
 	    ceros=ceros[1:]
 
 
@@ -345,11 +345,131 @@ def smd():
 
     valor=codeuno+ceros
     valor_smd=valor+ 'Ω'
+    print(valor_smd)
     #setiamos la  entry de smd
-    res_smd.set(valor_smd)
+    #res_smd.set(valor_smd)
+    resultado_smd.set(valor_smd)
 
 
-	
+
+########################################################################
+### Rutina de auto completado
+
+
+
+# NOTAAAAA
+# Si se desea poner autocompletado
+# en otra cosa, hay que automatizar para que la variable lista tenga en valor deseado
+
+    dic_smd={'01':'100','02':'102','03':'105','04':'107','05':'110','06':'113','07':'115','08':'118','09':'121','10':'124','11':'127','12':'130',
+			 '13':'133','14':'137', '15':'140', '16':'143', '17':'147','18':'150','19':'154','20':'158','21':'162','22':'165','23':'169','24':'174',
+			 '25':'178','26':'182', '27':'187', '28':'191', '29':'196','30':'200','31':'205','32':'210','33':'215','34':'221','35':'226','36':'232',
+			 '37':'237','38':'243', '39':'249', '40':'255', '41':'261','42':'267','43':'274','44':'280','45':'287','46':'294','47':'301','48':'309',
+             '49':'316','50':'324', '51':'332', '52':'340', '53':'348','54':'357','55':'365','56':'374','57':'383','58':'392','59':'402','60':'412',
+			 '61':'422','62':'432', '63':'442', '64':'453', '65':'464','66':'475','67':'487','68':'499','69':'511','70':'523','71':'536','72':'549',
+			 '73':'562','74':'567', '75':'590', '76':'604', '77':'619','78':'634','79':'649','80':'665','81':'681','82':'698','83':'715','84':'732',
+			 '85':'750','86':'768', '87':'787', '88':'806', '89':'825','90':'845','91':'866','92':'887','93':'909','94':'931','95':'953','96':'976'
+
+			}   
+
+lista=['100','102','105','107','110','113','115','118','121','124','127','130','133','137','140','143','147','150','154','158','162','165','169',
+'174', '178', '182','187','191','196','200','205','210','215','221','226','232','237','243','249','255','261','267','274','280','287','294','301',
+'309','316','324','332','340', '348','357','365','374','383','392','402','412','422','432','442' ,'453','464','475','487','499','511','523','536',
+'549','562','567','590','604','619','634','649','665','634','681','698','715','732','750','768','787','806','825','845','866','887','909','931',
+'953','976']
+
+
+#Clase de Autocompletado
+   
+class AutocompleteEntry(Entry):
+    def __init__(self, lista, *args, **kwargs):
+        
+        Entry.__init__(self, *args, **kwargs)
+        self.lista = lista        
+        self.var = self["textvariable"]
+        if self.var == '':
+            self.var = self["textvariable"] = StringVar()
+
+        self.var.trace('w', self.changed)
+        self.bind("<Right>", self.selection)
+        self.bind("<Up>", self.up)
+        self.bind("<Down>", self.down)
+        
+        self.lb_up = False
+
+    def changed(self, name, index, mode):  
+		
+        if self.var.get() == '':
+            self.lb.destroy()
+            self.lb_up = False
+        else:
+            words = self.comparison()
+            if words:            
+                if not self.lb_up:
+                    self.lb = Listbox(height=3, width= 10)
+                    self.lb.bind("<Double-Button-1>", self.selection)
+                    self.lb.bind("<Right>", self.selection)
+                    #+self.winfo_height()+27    --> +27 fue agregado porque el autocompletado salia encima del entry. originalmente no existe
+                    self.lb.place(x=self.winfo_x(), y=self.winfo_y()+self.winfo_height()+27)
+                    self.lb_up = True
+                self.lb.delete(0, END)   
+                #TOMANDO EL VALOOR, el valor seleccionado es str1     
+                str1 = ''.join(words)
+                str=len(str1)
+				#guardamos el ultimo valor que suponesmo que sera menor que 7
+				#Guardamos en la variable res_smd
+                if str < 7:
+                    res_smd.set(str1)
+                    
+
+                for w in words:
+                    self.lb.insert(END,w)
+            else:
+                if self.lb_up:
+                    self.lb.destroy()
+                    self.lb_up = False
+        
+    def selection(self, event):
+
+        if self.lb_up:
+            self.var.set(self.lb.get(ACTIVE))
+            self.lb.destroy()
+            self.lb_up = False
+            self.icursor(END)
+
+    def up(self, event):
+
+        if self.lb_up:
+            if self.lb.curselection() == ():
+                index = '0'
+            else:
+                index = self.lb.curselection()[0]
+            if index != '0':                
+                self.lb.selection_clear(first=index)
+                index = str(int(index)-1)                
+                self.lb.selection_set(first=index)
+                self.lb.activate(index) 
+
+
+    def down(self, event):
+
+        if self.lb_up:
+            if self.lb.curselection() == ():
+                index = '0'
+            else:
+                index = self.lb.curselection()[0]
+            if index != END:                        
+                self.lb.selection_clear(first=index)
+                index = str(int(index)+1)        
+                self.lb.selection_set(first=index)
+                self.lb.activate(index) 
+
+    def comparison(self):
+        pattern = re.compile('.*' + self.var.get() + '.*')
+        return [w for w in self.lista if re.match(pattern, w)]
+
+########################################################################
+#Fin de Rutina de Autocompletado
 	
 	
 
@@ -563,9 +683,9 @@ Label(pestana2,text=', software developed by Ronal Forero',font='Helvetica 10').
 Label(pestana2,text='License:',font='Helvetica 10 bold').place(x=20,y=80)
 Label(pestana2,text='GPL V3',font='Helvetica 10').place(x=80,y=80)
 Label(pestana2,text='Version:',font='Helvetica 10 bold').place(x=20,y=100)
-Label(pestana2,text='1.0',font='Helvetica 10').place(x=80,y=100)
+Label(pestana2,text='Beta 0.1',font='Helvetica 10').place(x=80,y=100)
 Label(pestana2,text='Version in development:',font='Helvetica 10 bold').place(x=20,y=120)
-Label(pestana2,text='Alpha 1.1',font='Helvetica 10').place(x=180,y=120)
+Label(pestana2,text='Alpha 0.2',font='Helvetica 10').place(x=180,y=120)
 Label(pestana2,text='Contact:',font='Helvetica 10 bold').place(x=20,y=140)
 Label(pestana2,text='L337.ronald@gmail.com',font='Helvetica 10').place(x=80,y=140)
 
@@ -617,6 +737,8 @@ res_up=StringVar()
 res_down=StringVar()
 combo_tole=IntVar() #para setear el combobox de la tolerancia
 res_smd=StringVar() #para valor de resistor SMD
+resultado_smd=StringVar()
+
 
 #creamos demas objetos
 
@@ -636,16 +758,17 @@ entry_serie2=Entry(pestana0,  width= 10,textvariable=serie2).place(x=280, y=360)
 #Entry Resistors
 entry_codigo=Entry(pestana1,  width= 10, textvariable=code_res).place(x=114, y=255) #codigo del capacitor
 Entry(pestana1,  width= 10, textvariable=resistor_value).place(x=295, y=64) #value code
-Entry(pestana1,  width= 14, textvariable=res_smd).place(x=90, y=180) #value code SMD
 Entry(pestana1,  width= 10, state='readonly',textvariable=res_up).place(x=330, y=240) #valor comercial disponible
 Entry(pestana1,  width= 10, state='readonly',textvariable=res_down).place(x=330, y=270) #valor comercial por debajo
 paralel1=Entry(pestana1,  width= 10).place(x=10, y=360)
 paralel2=Entry(pestana1,  width= 10).place(x=10, y=390)
 serie1=Entry(pestana1,  width= 10).place(x=280, y=360)
 serie2=Entry(pestana1,  width= 10).place(x=280, y=390)
+#Autocompletado para la entry de resistencias SMD  value code SMD
+entry = AutocompleteEntry(lista, pestana1, width= 10)
+entry.place(x=90, y=180)
+#Entry(pestana1,  width= 14, textvariable=res_smd).place(x=90, y=180) 
 #entry_aproximar=Entry(ventana,  width= 8).place(x=10, y=400) #aproximar valor
-
-
 
 #Botones
 #Botones capacitores
@@ -659,7 +782,7 @@ Boton_serie=Button(pestana0, text= "+", command=cap_serie).place(x=390, y=330)
 #Botones resistores
 Button(pestana1, text= "Calculate", command= calculo_res).place(x=464, y=104) #Boton calcular
 Button(pestana1, text= "Solve", command= calculo_color).place(x=464, y=60) #Boton solve value resistor
-Button(pestana1, text= "Solve",command= smd).place(x=230, y=176) #Boton solve value resistor SMD
+Button(pestana1, text= "Solve",command= smd).place(x=200, y=176) #Boton solve value resistor SMD
 Button(pestana1, text= "Search", command=buscar_res).place(x=240, y=250) #Boton buscar
 Button(pestana1, text= "+", command=buscar_res).place(x=120, y=360) #Boton_paralelo
 Button(pestana1, text= "+", command=buscar_res).place(x=390, y=360) #Boton serie
@@ -683,6 +806,8 @@ label_dib_cap.place(x=450, y=110)
 #Labels RESISTORES
 ima_resistor=PhotoImage(file="Sources/resistencia.png")
 banner_home=Label(pestana1,image=ima_resistor).place(x=84, y=40)
+
+smd_label= Label(pestana1, textvariable=resultado_smd).place(x=290, y=180)
 
 Label(pestana1, text="Parallel Resistors:").place(x=10, y=340)
 Label(pestana1, text="Serial Resistors:").place(x=280, y=340)
