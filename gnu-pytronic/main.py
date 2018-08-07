@@ -559,7 +559,7 @@ def select_image_cap(event):
 #Pestaña About
 
 Label(pestana2,text='GNU Pytronic',font='Helvetica 10 bold').place(x=20,y=60)
-Label(pestana2,text=', software developed by Ing.Ronal Forero',font='Helvetica 10').place(x=108,y=60)
+Label(pestana2,text=', software developed by Ronal Forero',font='Helvetica 10').place(x=108,y=60)
 Label(pestana2,text='License:',font='Helvetica 10 bold').place(x=20,y=80)
 Label(pestana2,text='GPL V3',font='Helvetica 10').place(x=80,y=80)
 Label(pestana2,text='Version:',font='Helvetica 10 bold').place(x=20,y=100)
@@ -636,7 +636,7 @@ entry_serie2=Entry(pestana0,  width= 10,textvariable=serie2).place(x=280, y=360)
 #Entry Resistors
 entry_codigo=Entry(pestana1,  width= 10, textvariable=code_res).place(x=114, y=255) #codigo del capacitor
 Entry(pestana1,  width= 10, textvariable=resistor_value).place(x=295, y=64) #value code
-#Entry(pestana1,  width= 14, textvariable=res_smd).place(x=90, y=180) #value code SMD
+Entry(pestana1,  width= 14, textvariable=res_smd).place(x=90, y=180) #value code SMD
 Entry(pestana1,  width= 10, state='readonly',textvariable=res_up).place(x=330, y=240) #valor comercial disponible
 Entry(pestana1,  width= 10, state='readonly',textvariable=res_down).place(x=330, y=270) #valor comercial por debajo
 paralel1=Entry(pestana1,  width= 10).place(x=10, y=360)
