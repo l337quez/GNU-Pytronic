@@ -10,24 +10,27 @@ In this version several details are arranged in the calculation of capacitors an
 
 The graphical interface is modified, placing tabs and the window is resized.
 
-<p align="center"><img src="https://github.com/l337quez/GNU-Pytronic/blob/master/Sources/versiones/V%200.001.jpg?raw=true"></p>  
+<p align="center"><img src="https://raw.githubusercontent.com/l337quez/GNU-Pytronic/master/other%20Sources/versiones/V%200.001.jpg"></p>  
 
 
 
 ## version alpha 0.002
-#### Apr 21 2018 Ronald Forero <L337.ronald AT gmail DOT com> -
+#### Apr 21 2018 Ronal Forero <L337.ronald AT gmail DOT com> -
 
 
-<p align="center"><img src="https://github.com/l337quez/GNU-Pytronic/blob/master/Sources/versiones/V%200.002.png?raw=true"></p>  
+<p align="center"><img src="https://raw.githubusercontent.com/l337quez/GNU-Pytronic/master/other%20Sources/versiones/V%200.002.png"></p>  
 
 In this version several errors are corrected. The software has an icon thanks to the collaboration of Pablo Lopez <yeti@disroot.org>. The home tab has a renewal.
 
 ## version beta 0.1
-### 
+### Agu 7 2018 Ronal Forero<L337.ronald AT gmail DOT com> -
+<p align="center"><img src="https://raw.githubusercontent.com/l337quez/GNU-Pytronic/master/other%20Sources/versiones/V%200.1.png"></p>  
 
-<p> En esta version se arreglaron varios componentes que no estaban funcionando
-correctamente, se le agrego un estilo a la estica del software, se añade el
-autocompletado, de esta manera hacer mas facil las busquedas, se actualizo
-la busqueda de rsistores SMD, todavia no contiene todas las nomenclaturas, pero si las basicas.
-Se agregan informacion del software en el instalador de windows.
+<p> In this version, several components were fixed that were not working correctly, the style is added to the aesthetics of the software, the autocomplete is added, in this way the searches can be made easier, the search for SMD Rsistores was updated, not yet contains all the nomenclatures, but if you use them. Software information is added in the Windows installer.
 </p>
+
+
+<p align="center"><img src="https://raw.githubusercontent.com/l337quez/GNU-Pytronic/master/other%20Sources/versiones/V%200.1_autocompletado.png"></p>  
+
+
+
