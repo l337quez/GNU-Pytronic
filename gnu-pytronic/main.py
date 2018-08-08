@@ -708,6 +708,7 @@ link.bind("<Button-1>", callback)
 ##############################################################################
 #Pestaña HOME
 
+#la imagen debe tener una dimencion de 600x407
 banner=PhotoImage(file="Sources/banner.png")
 banner_home=Label(pestana,image=banner).place(x=0, y=20)
 
@@ -935,7 +936,7 @@ list_tc.bind('<<ListboxSelect>>',select_image_cap)
 
 #########################################################################
 ventana.geometry("600x450+0+0")
-#icono del software
+#icono del software 
 ventana.call('wm','iconphoto',ventana._w,PhotoImage(file='pytronics.png'))
 
 #Tema tkinter para los objetos
