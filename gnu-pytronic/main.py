@@ -7,6 +7,7 @@ import subprocess
 import re
 import webbrowser
 from tkinter import filedialog
+
 #####################################################################
 
 #Funcion sufijo para hacer converciones Mega, kilo, micro, pico
@@ -229,23 +230,26 @@ def calculo_cap():
     tole_cap.set(tolerancia)
 
 
-#   CALCULO DE CAPACITORES PARALELO
+#   CALCULO DE CAPACITORES PARALELO Y SERIE
 
 def cap_paralelo ():
-    cap1=paralelo1.get()
-    cap2=paralelo2.get()
-    cap_result=cap1+cap2
+    cap1=paraleloc1.get()
+    cap2=paraleloc2.get()
     #setiamos la firts entry
-    paralelo1.set(cap_result)
-    paralelo2.set('  ')
+    paraleloc1.set(cap1+cap2)
+    paraleloc2.set('  ')
 
 def cap_serie ():
-    cap1=serie1.get()
-    cap2=serie2.get()
-    cap_result=cap1*cap2/cap1+cap2
+    cap1=seriec1.get()
+    cap2=seriec2.get()
     #setiamos la firts entry
-    serie1.set(cap_result)
-    serie2.set('  ')
+    seriec1.set((cap1*cap2)/(cap1+cap2))
+    seriec2.set('  ')
+
+
+
+ 
+########################################################################
 
 #Funciones para la pestaña resisitencia
 def buscar_res():
@@ -591,6 +595,25 @@ def calculo_res():
     #tolerancia=tole_res.get(tolerancia)
     #tolera_combo.set(tolerancia)
 
+
+
+#   CALCULO DE RESISTORES PARALELO Y SERIE
+
+def res_serie ():
+    res1=serier1.get()
+    res2=serier2.get()
+    #setiamos la firts entry
+    serier1.set(res1+res2)
+    serier2.set('  ')
+
+def res_paralelo ():
+    res1=paralelor1.get()
+    res2=paralelor2.get()
+    #setiamos la firts entry
+    paralelor1.set((res1*res2)/(res1+res2))
+    paralelor2.set('  ')
+
+
 #####################################################################
 #Configuracion inicial
 ventana =Tk()
@@ -725,10 +748,10 @@ tole_cap= StringVar()
 list_tipo_cap= StringVar() #obtener el valor seleccionado en tipo de capacitor
 cap_up=StringVar()
 cap_down=StringVar()
-serie1=DoubleVar()
-serie2=DoubleVar()
-paralelo1=DoubleVar()
-paralelo2=DoubleVar()
+seriec1=DoubleVar()
+seriec2=DoubleVar()
+paraleloc1=DoubleVar()
+paraleloc2=DoubleVar()
 
 
 #variables de resistores
@@ -739,7 +762,10 @@ res_down=StringVar()
 combo_tole=IntVar() #para setear el combobox de la tolerancia
 res_smd=StringVar() #para valor de resistor SMD
 resultado_smd=StringVar()
-
+serier1=DoubleVar()
+serier2=DoubleVar()
+paralelor1=DoubleVar()
+paralelor2=DoubleVar()
 
 #creamos demas objetos
 
@@ -751,20 +777,20 @@ entry_volt=Entry(pestana0,  width= 10,state='readonly', textvariable=volts_cap).
 entry_tol=Entry(pestana0,  width= 10,state='readonly', textvariable=tole_cap).place(x=210, y=160) #tolerancia
 entry_comerup=Entry(pestana0,  width= 10, state='readonly',textvariable=cap_up).place(x=330, y=210) #valor comercial disponible
 entry_comerdown=Entry(pestana0,  width= 10, state='readonly',textvariable=cap_down).place(x=330, y=240) #valor comercial por debajo
-entry_paralel1=Entry(pestana0,  width= 10,textvariable=paralelo1).place(x=10, y=330)
-entry_paralel2=Entry(pestana0,  width= 10,textvariable=paralelo2).place(x=10, y=360)
-entry_serie1=Entry(pestana0,  width= 10,textvariable=serie1).place(x=280, y=330)
-entry_serie2=Entry(pestana0,  width= 10,textvariable=serie2).place(x=280, y=360)
+Entry(pestana0,  width= 10,textvariable=paraleloc1).place(x=10, y=330)
+Entry(pestana0,  width= 10,textvariable=paraleloc2).place(x=10, y=360)
+Entry(pestana0,  width= 10,textvariable=seriec1).place(x=280, y=330)
+Entry(pestana0,  width= 10,textvariable=seriec2).place(x=280, y=360)
 
 #Entry Resistors
 entry_codigo=Entry(pestana1,  width= 10, textvariable=code_res).place(x=114, y=255) #codigo del capacitor
 Entry(pestana1,  width= 10, textvariable=resistor_value).place(x=295, y=64) #value code
 Entry(pestana1,  width= 10, state='readonly',textvariable=res_up).place(x=330, y=240) #valor comercial disponible
 Entry(pestana1,  width= 10, state='readonly',textvariable=res_down).place(x=330, y=270) #valor comercial por debajo
-paralel1=Entry(pestana1,  width= 10).place(x=10, y=360)
-paralel2=Entry(pestana1,  width= 10).place(x=10, y=390)
-serie1=Entry(pestana1,  width= 10).place(x=280, y=360)
-serie2=Entry(pestana1,  width= 10).place(x=280, y=390)
+Entry(pestana1,  width= 10,textvariable=paralelor1).place(x=10, y=360) 
+Entry(pestana1,  width= 10,textvariable=paralelor2).place(x=10, y=390)
+Entry(pestana1,  width= 10,textvariable=serier1).place(x=280, y=360)
+Entry(pestana1,  width= 10,textvariable=serier2).place(x=280, y=390)
 #Autocompletado para la entry de resistencias SMD  value code SMD
 entry = AutocompleteEntry(lista, pestana1, width= 10)
 entry.place(x=90, y=180)
@@ -785,8 +811,8 @@ Button(pestana1, text= "Calculate", command= calculo_res).place(x=464, y=104) #B
 Button(pestana1, text= "Solve", command= calculo_color).place(x=464, y=60) #Boton solve value resistor
 Button(pestana1, text= "Solve",command= smd).place(x=200, y=176) #Boton solve value resistor SMD
 Button(pestana1, text= "Search", command=buscar_res).place(x=240, y=250) #Boton buscar
-Button(pestana1, text= "+", command=buscar_res).place(x=120, y=360) #Boton_paralelo
-Button(pestana1, text= "+", command=buscar_res).place(x=390, y=360) #Boton serie
+Button(pestana1, text= "+", command=res_paralelo).place(x=120, y=360) #Boton_paralelo
+Button(pestana1, text= "+", command=res_serie).place(x=390, y=360) #Boton serie
 
 
 #Labels
