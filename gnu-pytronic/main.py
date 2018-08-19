@@ -722,7 +722,7 @@ link.place(x=20,y=160)
 link.bind("<Button-1>", callback)
 
 def callback(event):
-    webbrowser.open_new(r"https://github.com/l337quez/GNU-Pytronic/raw/master/other%20Sources/manual.odt")
+    webbrowser.open_new(r"https://raw.githubusercontent.com/l337quez/GNU-Pytronic/master/other%20Sources/manual.pdf")
 
 link = Label(pestana2, text="User manual", fg="blue", cursor="hand2")
 link.place(x=20,y=180)
