@@ -777,10 +777,10 @@ entry_volt=Entry(pestana0,  width= 10,state='readonly', textvariable=volts_cap).
 entry_tol=Entry(pestana0,  width= 10,state='readonly', textvariable=tole_cap).place(x=210, y=160) #tolerancia
 entry_comerup=Entry(pestana0,  width= 10, state='readonly',textvariable=cap_up).place(x=330, y=210) #valor comercial disponible
 entry_comerdown=Entry(pestana0,  width= 10, state='readonly',textvariable=cap_down).place(x=330, y=240) #valor comercial por debajo
-Entry(pestana0,  width= 10,textvariable=paraleloc1).place(x=10, y=330)
-Entry(pestana0,  width= 10,textvariable=paraleloc2).place(x=10, y=360)
-Entry(pestana0,  width= 10,textvariable=seriec1).place(x=280, y=330)
-Entry(pestana0,  width= 10,textvariable=seriec2).place(x=280, y=360)
+Entry(pestana0,  width= 10,textvariable=paraleloc1).place(x=10, y=360)
+Entry(pestana0,  width= 10,textvariable=paraleloc2).place(x=10, y=390)
+Entry(pestana0,  width= 10,textvariable=seriec1).place(x=280, y=360)
+Entry(pestana0,  width= 10,textvariable=seriec2).place(x=280, y=390)
 
 #Entry Resistors
 entry_codigo=Entry(pestana1,  width= 10, textvariable=code_res).place(x=114, y=255) #codigo del capacitor
@@ -803,8 +803,8 @@ Boton_calcular=Button(pestana0, text= "Calculate", command= calculo_cap).place(x
 Boton_buscar=Button(pestana0, text= "Search", command=buscar_cap).place(x=252, y=220)
 Boton_graficar=Button(pestana0, text="Graficar").place(x=410, y=600)
 Boton_guardar_data=Button(pestana0, text="Guardar DATA", state='disabled').place(x=10, y=570)
-Boton_paralelo=Button(pestana0, text= "+", command=cap_paralelo).place(x=120, y=330)
-Boton_serie=Button(pestana0, text= "+", command=cap_serie).place(x=390, y=330)
+Boton_paralelo=Button(pestana0, text= "+", command=cap_paralelo).place(x=120, y=360)
+Boton_serie=Button(pestana0, text= "+", command=cap_serie).place(x=390, y=360)
 
 #Botones resistores
 Button(pestana1, text= "Calculate", command= calculo_res).place(x=464, y=104) #Boton calcular
@@ -817,8 +817,8 @@ Button(pestana1, text= "+", command=res_serie).place(x=390, y=360) #Boton serie
 
 #Labels
 #Labels Capacitores
-label_cchino=Label(pestana0, text="Parallel Capacitors:").place(x=10, y=310)
-label_cchino=Label(pestana0, text="Serial Capacitors:").place(x=280, y=310)
+label_cchino=Label(pestana0, text="Parallel Capacitors:").place(x=10, y=340)
+label_cchino=Label(pestana0, text="Serial Capacitors:").place(x=280, y=340)
 label_cchino=Label(pestana0, text="Comercial value:").place(x=10, y=225)
 label_tc=Label(pestana0, text="Type of Capacitor:").place(x=10, y=44)
 label_voltaje=Label(pestana0, text="Voltage").place(x=110, y=138)
