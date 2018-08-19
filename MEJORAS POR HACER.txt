@@ -15,5 +15,7 @@ busque en la seccion de valores comerciales y luego que ingrese el valor comerci
 
 7. validar el % de tolerancia en los resistores, no funciona todavia
 
+8. En la pestaña de capacitores colocar temperatura, hay un codigo que representa la temperatura que soporta el capacitor
+
 
 
