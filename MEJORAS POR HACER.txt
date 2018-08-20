@@ -17,5 +17,8 @@ busque en la seccion de valores comerciales y luego que ingrese el valor comerci
 
 8. En la pestaña de capacitores colocar temperatura, hay un codigo que representa la temperatura que soporta el capacitor
 
+9. Agregar un boton de ayuda en cada modulo.. que el boton tenga el incono de ayuda y no tenga texto, pero cuando se pase el      cursor muestre un label que diga ayuda, esto se puede hacer con display-tooltips, aqui un ejemplo
+   https://stackoverflow.com/questions/3221956/how-do-i-display-tooltips-in-tkinter
+
 
 
