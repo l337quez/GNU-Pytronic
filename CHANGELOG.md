@@ -26,7 +26,11 @@ In this version several errors are corrected. The software has an icon thanks to
 ### Aug 7 2018 Ronal Forero<L337.ronald AT gmail DOT com> -
 <p align="center"><img src="https://raw.githubusercontent.com/l337quez/GNU-Pytronic/master/other%20Sources/versiones/V%200.1.png"></p>  
 
-<p> In this version, several components were fixed that were not working correctly, the style is added to the aesthetics of the software, the autocomplete is added, in this way the searches can be made easier, the search for SMD Rsistores was updated, not yet contains all the nomenclatures, but if you use them. Software information is added in the Windows installer.
+<p>In this version, several components that did not work correctly were fixed. In the graphic interface there were small changes, to make the software more intuitive, a style is added to the aesthetics of the software so that both windows and Gnu-linux (GTK) look more beautiful. Also some boxes of entrance, buttons and labels are reorganized, so that the user has a greater facility in the handling of the software.</p>
+
+<p>In the resistors tab, the autocompletion is added for the SMD resistors, in this way the software can predict the value that the user is looking for. The SMD resistors section still supports all the nominations, for now it has support for the basic nomenclature.</p>
+
+<p>The software information is added in the Windows installer.
 </p>
 
 
