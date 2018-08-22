@@ -733,7 +733,7 @@ link.bind("<Button-1>", callback)
 
 #la imagen debe tener una dimencion de 600x407
 banner=PhotoImage(file="Sources/banner.png")
-banner_home=Label(pestana,image=banner).place(x=0, y=20)
+banner_home=Label(pestana,image=banner).place(x=-1, y=20)
 
 
 ##############################################################################
@@ -799,7 +799,7 @@ entry.place(x=90, y=180)
 
 #Botones
 #Botones capacitores
-Boton_calcular=Button(pestana0, text= "Calculate", command= calculo_cap).place(x=420, y=58)
+Boton_calcular=Button(pestana0, text= "Calculate", command= calculo_cap).place(x=455, y=58)
 Boton_buscar=Button(pestana0, text= "Search", command=buscar_cap).place(x=252, y=220)
 Boton_graficar=Button(pestana0, text="Graficar").place(x=410, y=600)
 Boton_guardar_data=Button(pestana0, text="Guardar DATA", state='disabled').place(x=10, y=570)
@@ -825,6 +825,9 @@ label_voltaje=Label(pestana0, text="Voltage").place(x=110, y=138)
 label_tole=Label(pestana0, text="Tolerance").place(x=210, y=138)
 label_ca=Label(pestana0, text="Capacitance").place(x=10, y=138)
 label_code=Label(pestana0, text="Capacitor code:").place(x=140, y=44)
+Label(pestana0, text="Volts").place(x=140, y=84)
+Label(pestana0, text="Capacitance").place(x=231, y=84)
+Label(pestana0, text="Tolerance").place(x=342, y=84)
 #label dibujo de capacitor
 label_dib_cap=Label(pestana0)
 label_dib_cap.place(x=450, y=110)
@@ -864,29 +867,29 @@ vol_combo['values']=('0G','0L','0J','1A','1C','1E','1H','1J','1K','2A','2Q','2B'
 
 
 pn_combo=ttk.Combobox(pestana0, width= 3,height=3)
-pn_combo.place(x=200, y=64)
+pn_combo.place(x=210, y=64)
 pn_combo['values']=('n','p','0','0.5','1','1.2','1.5','1.8','2','2.2','2.7','3','3.3','3.9','4','4.7','5','6','7','8','9')
 
 
 sn_combo=ttk.Combobox(pestana0, width= 2,height=3)
-sn_combo.place(x=245, y=64)
+sn_combo.place(x=255, y=64)
 sn_combo['values']=('n','p','0','1','2','3','4','5','6','7','8','9')
 
 
 cero_combo=ttk.Combobox(pestana0, width= 2,height=3)
-cero_combo.place(x=282, y=64)
+cero_combo.place(x=292, y=64)
 cero_combo['values']=('n','0','1','2','3','4','5','6','7','8','9')
 
 
 #Combobox  TOLERANCIA
 tole_combo=ttk.Combobox(pestana0, width= 2, height=3)
-tole_combo.place(x=335, y=64)
+tole_combo.place(x=355, y=64)
 tole_combo['values']=('B','C','D','E','F','G','H','J','K','M','N','P','Z')
 
 
 #Combobox  convercion pf a uf...
 combo=ttk.Combobox(pestana0, width= 2)
-combo.place(x=380, y=64)
+combo.place(x=410, y=64)
 combo['values']=('f','mf','uf','pf','nf')
 combo.current(2)
 
