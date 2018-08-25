@@ -771,20 +771,20 @@ paralelor2=DoubleVar()
 
 #Entry
 #Entry Capacitor
-entry_codigo=Entry(pestana0,  width= 10, textvariable=codigo).place(x=114, y=225) #codigo del capacitor
+entry_codigo=Entry(pestana0,  width= 10, textvariable=codigo).place(x=10, y=225) #codigo del capacitor
 entry_valor=Entry(pestana0,  width= 10, state='readonly', textvariable=valor_cap).place(x=10, y=160) #capacitancia
 entry_volt=Entry(pestana0,  width= 10,state='readonly', textvariable=volts_cap).place(x=110, y=160) #voltaje
 entry_tol=Entry(pestana0,  width= 10,state='readonly', textvariable=tole_cap).place(x=210, y=160) #tolerancia
-entry_comerup=Entry(pestana0,  width= 10, state='readonly',textvariable=cap_up).place(x=330, y=210) #valor comercial disponible
-entry_comerdown=Entry(pestana0,  width= 10, state='readonly',textvariable=cap_down).place(x=330, y=240) #valor comercial por debajo
+entry_comerup=Entry(pestana0,  width= 10, state='readonly',textvariable=cap_up).place(x=280, y=210) #valor comercial disponible
+entry_comerdown=Entry(pestana0,  width= 10, state='readonly',textvariable=cap_down).place(x=280, y=240) #valor comercial por debajo
 Entry(pestana0,  width= 10,textvariable=paraleloc1).place(x=10, y=360)
 Entry(pestana0,  width= 10,textvariable=paraleloc2).place(x=10, y=390)
 Entry(pestana0,  width= 10,textvariable=seriec1).place(x=280, y=360)
 Entry(pestana0,  width= 10,textvariable=seriec2).place(x=280, y=390)
 
 #Entry Resistors
-entry_codigo=Entry(pestana1,  width= 10, textvariable=code_res).place(x=114, y=255) #codigo del capacitor
-Entry(pestana1,  width= 10, textvariable=resistor_value).place(x=295, y=64) #value code
+entry_codigo=Entry(pestana1,  width= 10, textvariable=code_res).place(x=114, y=255) #codigo del resisitor
+Entry(pestana1,  width= 10, textvariable=resistor_value).place(x=295, y=54) #value code
 Entry(pestana1,  width= 10, state='readonly',textvariable=res_up).place(x=330, y=240) #valor comercial disponible
 Entry(pestana1,  width= 10, state='readonly',textvariable=res_down).place(x=330, y=270) #valor comercial por debajo
 Entry(pestana1,  width= 10,textvariable=paralelor1).place(x=10, y=360) 
@@ -800,15 +800,15 @@ entry.place(x=90, y=180)
 #Botones
 #Botones capacitores
 Boton_calcular=Button(pestana0, text= "Calculate", command= calculo_cap).place(x=455, y=58)
-Boton_buscar=Button(pestana0, text= "Search", command=buscar_cap).place(x=252, y=220)
+Boton_buscar=Button(pestana0, text= "Search", command=buscar_cap).place(x=182, y=220)
 Boton_graficar=Button(pestana0, text="Graficar").place(x=410, y=600)
 Boton_guardar_data=Button(pestana0, text="Guardar DATA", state='disabled').place(x=10, y=570)
 Boton_paralelo=Button(pestana0, text= "+", command=cap_paralelo).place(x=120, y=360)
 Boton_serie=Button(pestana0, text= "+", command=cap_serie).place(x=390, y=360)
 
 #Botones resistores
-Button(pestana1, text= "Calculate", command= calculo_res).place(x=464, y=104) #Boton calcular
-Button(pestana1, text= "Solve", command= calculo_color).place(x=464, y=60) #Boton solve value resistor
+Button(pestana1, text= "Calculate", command= calculo_res).place(x=383, y=110) #Boton calcular
+Button(pestana1, text= "Solve", command= calculo_color).place(x=474, y=50) #Boton solve value resistor
 Button(pestana1, text= "Solve",command= smd).place(x=200, y=176) #Boton solve value resistor SMD
 Button(pestana1, text= "Search", command=buscar_res).place(x=240, y=250) #Boton buscar
 Button(pestana1, text= "+", command=res_paralelo).place(x=120, y=360) #Boton_paralelo
@@ -819,7 +819,7 @@ Button(pestana1, text= "+", command=res_serie).place(x=390, y=360) #Boton serie
 #Labels Capacitores
 label_cchino=Label(pestana0, text="Parallel Capacitors:").place(x=10, y=340)
 label_cchino=Label(pestana0, text="Serial Capacitors:").place(x=280, y=340)
-label_cchino=Label(pestana0, text="Comercial value:").place(x=10, y=225)
+label_cchino=Label(pestana0, text="Comercial value:").place(x=10, y=205)
 label_tc=Label(pestana0, text="Type of Capacitor:").place(x=10, y=44)
 label_voltaje=Label(pestana0, text="Voltage").place(x=110, y=138)
 label_tole=Label(pestana0, text="Tolerance").place(x=210, y=138)
@@ -842,8 +842,8 @@ smd_label= Label(pestana1, textvariable=resultado_smd).place(x=290, y=180)
 Label(pestana1, text="Parallel Resistors:").place(x=10, y=340)
 Label(pestana1, text="Serial Resistors:").place(x=280, y=340)
 label_cchino=Label(pestana1, text="Comercial value:").place(x=10, y=255)
-label_tc=Label(pestana1, text="Color Code:").place(x=10, y=110)
-Label(pestana1, text="Value:").place(x=250, y=64)
+label_tc=Label(pestana1, text="Color Code:").place(x=10, y=95)
+Label(pestana1, text="Value:").place(x=250, y=54)
 Label(pestana1, text="SMD Code:").place(x=10, y=180)
 label_ban1=Label(pestana1,  height= 2)
 label_ban1.place(x=110, y=50)
@@ -895,7 +895,7 @@ combo.current(2)
 
 #Combobox  convercion pf a uf imput comercial...
 in_combo=ttk.Combobox(pestana0, width= 2)
-in_combo.place(x=209, y=225)
+in_combo.place(x=110, y=225)
 in_combo['values']=('f','mf','uf','pf','nf')
 in_combo.current(3)
 
@@ -907,33 +907,33 @@ in_combo.current(3)
 #######COMBOBOX PARA RESISTORES
 #BANDA 1
 ban1_combo=ttk.Combobox(pestana1, width= 6, height=3)
-ban1_combo.place(x=90, y=110)
+ban1_combo.place(x=10, y=115)
 ban1_combo['values']=('brown','red','orange','yellow','green', 'blue','violet','gray','white' )
 
 #BANDA 2
 ban2_combo=ttk.Combobox(pestana1, width= 6,height=3)
-ban2_combo.place(x=160, y=110)
+ban2_combo.place(x=80, y=115)
 ban2_combo['values']=('brown','red','orange','yellow','green', 'blue','violet','gray','white','black' )
 
 #BANDA 3
 ban3_combo=ttk.Combobox(pestana1, width= 6,height=3)
-ban3_combo.place(x=230, y=110)
+ban3_combo.place(x=150, y=115)
 ban3_combo['values']=('brown','red','orange','yellow','green', 'blue','violet','gray','white','black' )
 #BANDA 4
 ban4_combo=ttk.Combobox(pestana1, width= 6,height=3)
-ban4_combo.place(x=300, y=110)
+ban4_combo.place(x=220, y=115)
 ban4_combo['values']=('none','brown','red','orange','yellow','green', 'blue','violet','gray','white','black' )
 ban4_combo.current(0)
 
 #BANDA 5
 ban5_combo=ttk.Combobox(pestana1, width= 6, height=3)
-ban5_combo.place(x=370, y=110)
+ban5_combo.place(x=290, y=115)
 ban5_combo['values']=('Silver','Golden','Red','Brown','Green', 'Blue','Violet','Gray' )
 ban5_combo.current(1)
 
 #TOLERANCIA
 tolera_combo=ttk.Combobox(pestana1, width= 6, height=3)
-tolera_combo.place(x=390, y=64)
+tolera_combo.place(x=390, y=54)
 tolera_combo['values']=('20%','10%','5%','1%','0.5%', '0.25%','0.10%','0.05%' )
 tolera_combo.current(2)
 
