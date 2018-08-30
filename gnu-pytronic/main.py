@@ -783,10 +783,10 @@ Entry(pestana0,  width= 10,textvariable=seriec1).place(x=280, y=360)
 Entry(pestana0,  width= 10,textvariable=seriec2).place(x=280, y=390)
 
 #Entry Resistors
-entry_codigo=Entry(pestana1,  width= 10, textvariable=code_res).place(x=114, y=255) #codigo del resisitor
+entry_codigo=Entry(pestana1,  width= 10, textvariable=code_res).place(x=10, y=295) #codigo del resisitor
 Entry(pestana1,  width= 10, textvariable=resistor_value).place(x=295, y=54) #value code
-Entry(pestana1,  width= 10, state='readonly',textvariable=res_up).place(x=330, y=240) #valor comercial disponible
-Entry(pestana1,  width= 10, state='readonly',textvariable=res_down).place(x=330, y=270) #valor comercial por debajo
+Entry(pestana1,  width= 10, state='readonly',textvariable=res_up).place(x=220, y=280) #valor comercial disponible
+Entry(pestana1,  width= 10, state='readonly',textvariable=res_down).place(x=220, y=310) #valor comercial por debajo
 Entry(pestana1,  width= 10,textvariable=paralelor1).place(x=10, y=360) 
 Entry(pestana1,  width= 10,textvariable=paralelor2).place(x=10, y=390)
 Entry(pestana1,  width= 10,textvariable=serier1).place(x=280, y=360)
@@ -810,7 +810,7 @@ Boton_serie=Button(pestana0, text= "+", command=cap_serie).place(x=390, y=360)
 Button(pestana1, text= "Calculate", command= calculo_res).place(x=383, y=110) #Boton calcular
 Button(pestana1, text= "Solve", command= calculo_color).place(x=474, y=50) #Boton solve value resistor
 Button(pestana1, text= "Solve",command= smd).place(x=200, y=176) #Boton solve value resistor SMD
-Button(pestana1, text= "Search", command=buscar_res).place(x=240, y=250) #Boton buscar
+Button(pestana1, text= "Search", command=buscar_res).place(x=130, y=288) #Boton buscar
 Button(pestana1, text= "+", command=res_paralelo).place(x=120, y=360) #Boton_paralelo
 Button(pestana1, text= "+", command=res_serie).place(x=390, y=360) #Boton serie
 
@@ -840,8 +840,8 @@ banner_home=Label(pestana1,image=ima_resistor).place(x=84, y=40)
 smd_label= Label(pestana1, textvariable=resultado_smd).place(x=290, y=180)
 
 Label(pestana1, text="Parallel Resistors:").place(x=10, y=340)
-Label(pestana1, text="Serial Resistors:").place(x=280, y=340)
-label_cchino=Label(pestana1, text="Comercial value:").place(x=10, y=255)
+Label(pestana1, text="Serial Resistors:").place(x=280, y=345)
+label_cchino=Label(pestana1, text="Comercial value:").place(x=10, y=270)
 label_tc=Label(pestana1, text="Color Code:").place(x=10, y=95)
 Label(pestana1, text="Value:").place(x=250, y=54)
 Label(pestana1, text="SMD Code:").place(x=10, y=180)

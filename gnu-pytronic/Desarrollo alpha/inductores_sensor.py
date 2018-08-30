@@ -39,8 +39,7 @@ def object_disables ():
 
 
 
-#http://www.incb.com.mx/index.php/articulos/9-articulos-tecnicos-y-proyectos/942-como-calcular-y-enrollar-pequenos-inductores-art170s
-#http://www.lu1cgb.com.ar/Inductores.htm
+
 
 
 
@@ -275,8 +274,7 @@ Boton_guardar_data=Button(ventana, text="Guardar DATA", state='disabled').place(
 
 #Labels
 label_cchino=Label(ventana, text="Comercial value:").place(x=10, y=255)
-label_tc=Label(ventana, text="Core Air", font='bold').place(x=10, y=74)
-label_tc=Label(ventana, text="Color code", font='bold').place(x=10, y=54)
+label_tc=Label(ventana, text="Calculator of sensor output according to the coil:", font='bold').place(x=10, y=74)
 label_voltaje=Label(ventana, text="N° of turns").place(x=140, y=110)
 label_tole=Label(ventana, text="Magnetic Field").place(x=260, y=110)
 label_ca=Label(ventana, text="Inductor Length").place(x=10, y=110)
