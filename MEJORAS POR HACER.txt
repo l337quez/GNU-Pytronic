@@ -24,4 +24,4 @@ busque en la seccion de valores comerciales y luego que ingrese el valor comerci
 10. el predictor de resistore smd cunado se esta buscando un codigo, pero si se cambia de pestaña por x motivo el listbox se sigue mostrando, hay que poner un destoy en laas pestañas, para que las elimine
 
 
-
+11. en la pestaña about, sale la informacion del computador, en linux funciona, en windows hay que validar para que muestre windows y muetre la version de windows, tambien si es 32bit o 64bit
