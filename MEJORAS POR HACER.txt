@@ -25,3 +25,5 @@ busque en la seccion de valores comerciales y luego que ingrese el valor comerci
 
 
 11. en la pestaña about, sale la informacion del computador, en linux funciona, en windows hay que validar para que muestre windows y muetre la version de windows, tambien si es 32bit o 64bit
+
+12. en las resistencias el % de tolerancia esta asociado a los valores revisar https://www.ecured.cu/Tolerancia_de_una_resistencia_el%C3%A9ctrica
