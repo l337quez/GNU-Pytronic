@@ -52,7 +52,7 @@ from tkinter import filedialog
 
 #funcion para buscar valor de capacitores comerciales
 def buscar_cap():
-    numero= codigo.get()
+    numero= codigo_cap.get()
     #validamos que lo ingresado sea numeros
     digit=numero.isdigit()
     
@@ -78,7 +78,7 @@ def buscar_cap():
 
     if  digit==False and re.match("^\d+?\.\d+?$",numero) is None:
 
-        codigo.set('ERROR')
+        codigo_cap.set('ERROR')
 
     else:
         cap_comercial=(0.5,1,1.2,1.5,1.8,2.2,2.7,3.3,3.9,4.7,5.6,6.8,8.2,10,12,15,18,22,27,33,39,47,56,68,82,100,120,150,180,220,270,330,390,470,560,680,820,1000,1200,1500,1800,2200,2700,3300,3900,4700,5600
@@ -257,11 +257,17 @@ def buscar_res():
     #validamos que lo ingresado sea numeros
     digit=valor_res.isdigit()
 
-
+    print(valor_res)
     if  digit==False and re.match("^\d+?\.\d+?$",valor_res) is None:
 
-        codigo.set('ERROR')
-
+        code_res.set('ERROR')
+    
+    elif float(valor_res) >1000000:
+        code_res.set('ERROR')
+        
+    elif  float(valor_res) <0.99:
+        code_res.set('ERROR')
+ 
     else:
         res_comercial=(1,1.2,1.5,1.8,2.2,2.7,3.3,3.9,4.7,5.1,5.6,6.8,8.2,10,12,15,18,22,27,33,39,47,51,56,68,82,100,120,150,180,220,270,330,390,470,510,560,680,820,1000,1200,1500,1800,2200,2700,3300,3900,4700,
         5100,5600,6800,8200,10000,12000,15000,18000,22000,27000,33000,39000,47000,51000,56000,68000,82000,100000,120000,150000,180000,220000,330000,390000,470000,510000,560000,680000,820000,1000000)
@@ -772,7 +778,7 @@ banner_home=Label(pestana,image=banner).place(x=-1, y=20)
 
 #definimos variables
 ## variables de Capacitores
-codigo =StringVar() #codigo del capacitor
+codigo_cap =StringVar() #codigo del capacitor
 valor_cap =StringVar() #valor real del capacitor
 volts_cap= StringVar() # voltaje del capacitor
 tole_cap= StringVar()
@@ -802,7 +808,7 @@ paralelor2=DoubleVar()
 
 #Entry
 #Entry Capacitor
-entry_codigo=Entry(pestana0,  width= 10, textvariable=codigo).place(x=10, y=225) #codigo del capacitor
+entry_codigo=Entry(pestana0,  width= 10, textvariable=codigo_cap).place(x=10, y=225) #codigo del capacitor
 entry_valor=Entry(pestana0,  width= 10, state='readonly', textvariable=valor_cap).place(x=10, y=160) #capacitancia
 entry_volt=Entry(pestana0,  width= 10,state='readonly', textvariable=volts_cap).place(x=110, y=160) #voltaje
 entry_tol=Entry(pestana0,  width= 10,state='readonly', textvariable=tole_cap).place(x=210, y=160) #tolerancia
@@ -886,6 +892,12 @@ label_ban4=Label(pestana1,  height= 2)
 label_ban4.place(x=170, y=50)
 label_ban5=Label(pestana1, bg="gold2",  height= 2)
 label_ban5.place(x=190, y=50)
+
+Label(pestana1, text="Band 1").place(x=10, y=135)
+Label(pestana1, text="Band 2").place(x=80, y=135)
+Label(pestana1, text="Band 3").place(x=150, y=135)
+Label(pestana1, text="Band 4").place(x=220, y=135)
+Label(pestana1, text="Tolerance").place(x=290, y=135)
 
 #COMBOBOX
 
