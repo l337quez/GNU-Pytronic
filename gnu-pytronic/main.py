@@ -3,7 +3,7 @@ from tkinter import *
 from tkinter import ttk
 import os
 import sys
-import subprocess
+import shlex, subprocess
 import re
 import webbrowser
 from tkinter import filedialog
@@ -414,6 +414,7 @@ class AutocompleteEntry(Entry):
                     self.lb.bind("<Double-Button-1>", self.selection)
                     self.lb.bind("<Right>", self.selection)
                     #+self.winfo_height()+27    --> +27 fue agregado porque el autocompletado salia encima del entry. originalmente no existe
+                   #self.lb.place(x=self.winfo_x(), y=self.winfo_y()+self.winfo_height()+27)
                     self.lb.place(x=self.winfo_x(), y=self.winfo_y()+self.winfo_height()+27)
                     self.lb_up = True
                 self.lb.delete(0, END)   
@@ -699,12 +700,37 @@ def select_image_cap(event):
 
 
 ##############################################################################
-#Pestaña About
+# PESTAÑA ABOUT
+
+#validando el sistema operativo windows o linux
+operativo=sys.platform
+print(operativo)
+
+if operativo=='linux':
+	# INFORMACION DEL COMPUTADOR GNU LINUX
+	sistema = subprocess.check_output("uname -o ", shell=True).strip();
+	distri=subprocess.check_output("uname -r ", shell=True).strip();
+	arch=subprocess.check_output("uname -m ", shell=True).strip();
+	enblanco = str.encode("  ")
+	result= sistema + enblanco + distri + enblanco +arch
+	print(result)
+	uname=StringVar()
+	uname.set(result)
+	Label(pestana2,text='System information:',font='Helvetica 10 bold').place(x=20,y=40)
+	Label(pestana2, textvariable=uname,font='Helvetica 10').place(x=152, y=40)
+else :
+	# INFORMACION DEL COMPUTADOR WINDOWS
+	print ('esta en windows')
+
+
+
+
+#texto informativo
 
 Label(pestana2,text='GNU Pytronic',font='Helvetica 10 bold').place(x=20,y=60)
 Label(pestana2,text=', software developed by Ronal Forero',font='Helvetica 10').place(x=108,y=60)
 Label(pestana2,text='License:',font='Helvetica 10 bold').place(x=20,y=80)
-Label(pestana2,text='GPL V3',font='Helvetica 10').place(x=80,y=80)
+Label(pestana2,text='GPL V.3',font='Helvetica 10').place(x=80,y=80)
 Label(pestana2,text='Version:',font='Helvetica 10 bold').place(x=20,y=100)
 Label(pestana2,text='Beta 0.1',font='Helvetica 10').place(x=80,y=100)
 Label(pestana2,text='Version in development:',font='Helvetica 10 bold').place(x=20,y=120)
@@ -712,8 +738,13 @@ Label(pestana2,text='Alpha 0.2',font='Helvetica 10').place(x=180,y=120)
 Label(pestana2,text='Contact:',font='Helvetica 10 bold').place(x=20,y=140)
 Label(pestana2,text='L337.ronald@gmail.com',font='Helvetica 10').place(x=80,y=140)
 
+#artistas
+Label(pestana2,text='Artists:',font='Helvetica 10 bold').place(x=20,y=240)
+Label(pestana2,text='Pablo Lopez',font='Helvetica 10').place(x=80,y=240)
 
+#empaquetadores
 
+#enlaces
 def callback(event):
     webbrowser.open_new(r"https://ronaldl337.wordpress.com/tag/gnu-pytronic/")
 
@@ -793,7 +824,7 @@ Entry(pestana1,  width= 10,textvariable=serier1).place(x=280, y=360)
 Entry(pestana1,  width= 10,textvariable=serier2).place(x=280, y=390)
 #Autocompletado para la entry de resistencias SMD  value code SMD
 entry = AutocompleteEntry(lista, pestana1, width= 10)
-entry.place(x=90, y=180)
+entry.place(x=90, y=200)
 #Entry(pestana1,  width= 14, textvariable=res_smd).place(x=90, y=180) 
 #entry_aproximar=Entry(ventana,  width= 8).place(x=10, y=400) #aproximar valor
 
@@ -809,7 +840,7 @@ Boton_serie=Button(pestana0, text= "+", command=cap_serie).place(x=390, y=360)
 #Botones resistores
 Button(pestana1, text= "Calculate", command= calculo_res).place(x=383, y=110) #Boton calcular
 Button(pestana1, text= "Solve", command= calculo_color).place(x=474, y=50) #Boton solve value resistor
-Button(pestana1, text= "Solve",command= smd).place(x=200, y=176) #Boton solve value resistor SMD
+Button(pestana1, text= "Solve",command= smd).place(x=200, y=196) #Boton solve value resistor SMD
 Button(pestana1, text= "Search", command=buscar_res).place(x=130, y=288) #Boton buscar
 Button(pestana1, text= "+", command=res_paralelo).place(x=120, y=360) #Boton_paralelo
 Button(pestana1, text= "+", command=res_serie).place(x=390, y=360) #Boton serie
@@ -841,10 +872,10 @@ smd_label= Label(pestana1, textvariable=resultado_smd).place(x=290, y=180)
 
 Label(pestana1, text="Parallel Resistors:").place(x=10, y=340)
 Label(pestana1, text="Serial Resistors:").place(x=280, y=345)
-label_cchino=Label(pestana1, text="Comercial value:").place(x=10, y=270)
+label_cchino=Label(pestana1, text="Comercial value:").place(x=10, y=273)
 label_tc=Label(pestana1, text="Color Code:").place(x=10, y=95)
 Label(pestana1, text="Value:").place(x=250, y=54)
-Label(pestana1, text="SMD Code:").place(x=10, y=180)
+Label(pestana1, text="SMD Code:").place(x=10, y=200)
 label_ban1=Label(pestana1,  height= 2)
 label_ban1.place(x=110, y=50)
 label_ban2=Label(pestana1,  height= 2)

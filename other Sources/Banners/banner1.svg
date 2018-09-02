@@ -5176,14 +5176,14 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="0.24748737"
-     inkscape:cx="-275.98029"
-     inkscape:cy="572.52564"
+     inkscape:cx="710.40088"
+     inkscape:cy="810.89526"
      inkscape:document-units="mm"
      inkscape:current-layer="g18"
      showgrid="false"
      inkscape:window-width="1366"
      inkscape:window-height="715"
-     inkscape:window-x="0"
+     inkscape:window-x="1366"
      inkscape:window-y="32"
      inkscape:window-maximized="1"
      units="px" />
@@ -5218,7 +5218,7 @@
          transform="scale(1,-1)"
          inkscape:export-xdpi="25.404381"
          inkscape:export-ydpi="25.404381"
-         inkscape:export-filename="/home/ronal/git/GNU-Pytronic/other Sources/banner.png" />
+         inkscape:export-filename="/home/ronal/git/GNU-Pytronic/gnu-pytronic/Sources/banner.png" />
       <g
          id="g20">
         <g
@@ -5233,7 +5233,7 @@
          transform="matrix(2.1195217,0,0,1.4414742,-331.87406,-353.21338)"
          inkscape:export-xdpi="25.404381"
          inkscape:export-ydpi="25.404381"
-         inkscape:export-filename="/home/ronal/git/GNU-Pytronic/other Sources/banner.png">
+         inkscape:export-filename="/home/ronal/git/GNU-Pytronic/gnu-pytronic/Sources/banner.png">
         <g
            clip-path="url(#clipPath168)"
            id="g164">
@@ -8892,14 +8892,14 @@
          transform="scale(1,-1)"
          inkscape:export-xdpi="25.404381"
          inkscape:export-ydpi="25.404381"
-         inkscape:export-filename="/home/ronal/git/GNU-Pytronic/other Sources/banner.png" />
+         inkscape:export-filename="/home/ronal/git/GNU-Pytronic/gnu-pytronic/Sources/banner.png" />
       <g
          id="layer1-3"
          inkscape:label="Capa 1"
          transform="matrix(1.8877045,0,0,-1.8877045,299.9525,568.3256)"
          inkscape:export-xdpi="25.404381"
          inkscape:export-ydpi="25.404381"
-         inkscape:export-filename="/home/ronal/git/GNU-Pytronic/other Sources/banner.png">
+         inkscape:export-filename="/home/ronal/git/GNU-Pytronic/gnu-pytronic/Sources/banner.png">
         <g
            transform="matrix(0.26458333,0,0,0.26458333,-208.02644,-58.705142)"
            id="g1829" />
@@ -8973,13 +8973,13 @@
          ry="24.089672"
          inkscape:export-xdpi="25.404381"
          inkscape:export-ydpi="25.404381"
-         inkscape:export-filename="/home/ronal/git/GNU-Pytronic/other Sources/banner.png" />
+         inkscape:export-filename="/home/ronal/git/GNU-Pytronic/gnu-pytronic/Sources/banner.png" />
       <g
          id="icon"
          transform="matrix(1.5571323,0,0,-1.5571323,-268.58815,-129.9199)"
          inkscape:export-xdpi="25.404381"
          inkscape:export-ydpi="25.404381"
-         inkscape:export-filename="/home/ronal/git/GNU-Pytronic/other Sources/banner.png">
+         inkscape:export-filename="/home/ronal/git/GNU-Pytronic/gnu-pytronic/Sources/banner.png">
         <g
            id="g7761"
            clip-path="url(#clipPath7903)"
@@ -9040,7 +9040,7 @@
          clip-path="url(#clipPath7924)"
          inkscape:export-xdpi="25.404381"
          inkscape:export-ydpi="25.404381"
-         inkscape:export-filename="/home/ronal/git/GNU-Pytronic/other Sources/banner.png">
+         inkscape:export-filename="/home/ronal/git/GNU-Pytronic/gnu-pytronic/Sources/banner.png">
         <g
            id="g7796">
           <path
@@ -9093,7 +9093,7 @@
          transform="scale(1,-1)"
          inkscape:export-xdpi="25.404381"
          inkscape:export-ydpi="25.404381"
-         inkscape:export-filename="/home/ronal/git/GNU-Pytronic/other Sources/banner.png"><tspan
+         inkscape:export-filename="/home/ronal/git/GNU-Pytronic/gnu-pytronic/Sources/banner.png"><tspan
            sodipodi:role="line"
            id="tspan6932"
            x="-203.75906"
@@ -9110,7 +9110,7 @@
          transform="scale(1,-1)"
          inkscape:export-xdpi="25.404381"
          inkscape:export-ydpi="25.404381"
-         inkscape:export-filename="/home/ronal/git/GNU-Pytronic/other Sources/banner.png" />
+         inkscape:export-filename="/home/ronal/git/GNU-Pytronic/gnu-pytronic/Sources/banner.png" />
       <text
          xml:space="preserve"
          style="font-style:normal;font-weight:normal;font-size:9.3998785px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.54230064"
@@ -9120,7 +9120,7 @@
          transform="scale(1,-1)"
          inkscape:export-xdpi="25.404381"
          inkscape:export-ydpi="25.404381"
-         inkscape:export-filename="/home/ronal/git/GNU-Pytronic/other Sources/banner.png"><tspan
+         inkscape:export-filename="/home/ronal/git/GNU-Pytronic/gnu-pytronic/Sources/banner.png"><tspan
            sodipodi:role="line"
            id="tspan6932-0"
            x="-205.45357"
@@ -9135,27 +9135,62 @@
          transform="scale(1,-1)"
          inkscape:export-xdpi="25.404381"
          inkscape:export-ydpi="25.404381"
-         inkscape:export-filename="/home/ronal/git/GNU-Pytronic/other Sources/banner.png"><tspan
+         inkscape:export-filename="/home/ronal/git/GNU-Pytronic/gnu-pytronic/Sources/banner.png"><tspan
            sodipodi:role="line"
            id="tspan6932-0-6"
            x="990.47693"
            y="327.21466"
            style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:35px;font-family:'URW Gothic';-inkscape-font-specification:'URW Gothic';fill:#ffffff;stroke-width:0.54230064">Version Beta 0.1</tspan></text>
-      <text
-         xml:space="preserve"
-         style="font-style:normal;font-weight:normal;font-size:64px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.75"
-         x="259.74173"
-         y="-56.844597"
-         id="text8126"
+      <g
+         aria-label="GNU Pytronic"
          transform="scale(1,-1)"
-         inkscape:export-xdpi="25.404381"
-         inkscape:export-ydpi="25.404381"
-         inkscape:export-filename="/home/ronal/git/GNU-Pytronic/other Sources/banner.png"><tspan
-           sodipodi:role="line"
-           id="tspan8124"
-           x="259.74173"
-           y="-56.844597"
-           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:moonhouse;-inkscape-font-specification:moonhouse;stroke-width:0.75">GNU Pytronic</tspan></text>
+         style="font-style:normal;font-weight:normal;font-size:64px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.75"
+         id="text8126">
+        <path
+           d="m 300.06173,-64.524597 4.48,-5.952 q -8.192,0 -16.256,0 -8,-0.064 -16.192,-0.064 v -7.744 q 9.344,0 18.624,0.064 9.344,0 18.688,0 1.664,0 2.816,0.896 1.216,0.896 1.792,2.24 0.576,1.28 0.448,2.816 -0.128,1.536 -1.088,2.816 l -9.536,12.608 h -31.488 q -2.624,0 -4.928,-0.96 -2.304,-1.024 -4.032,-2.688 -1.664,-1.728 -2.688,-4.032 -0.96,-2.304 -0.96,-4.928 v -9.856 q 0,-2.624 0.96,-4.928 1.024,-2.304 2.688,-4.032 1.728,-1.728 4.032,-2.688 2.304,-1.024 4.928,-1.024 h 39.424 v 7.744 h -39.424 q -2.048,0 -3.52,1.472 -1.408,1.408 -1.408,3.456 v 9.856 q 0,2.048 1.408,3.52 1.472,1.408 3.52,1.408 z"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:moonhouse;-inkscape-font-specification:moonhouse;stroke-width:0.75"
+           id="path2210" />
+        <path
+           d="m 363.97373,-91.916597 v 30.784 q 0,1.6 -0.832,2.816 -0.832,1.152 -2.112,1.728 -1.216,0.64 -2.688,0.512 -1.472,-0.064 -2.688,-1.088 l -31.296,-25.28 v 25.6 h -7.616 v -30.784 q 0,-1.6 0.832,-2.816 0.832,-1.216 2.048,-1.792 1.28,-0.576 2.688,-0.448 1.472,0.064 2.688,1.088 l 31.36,25.216 v -25.536 z"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:moonhouse;-inkscape-font-specification:moonhouse;stroke-width:0.75"
+           id="path2212" />
+        <path
+           d="m 367.99173,-92.044597 h 7.68 v 22.592 q 0,2.048 1.408,3.52 1.472,1.408 3.52,1.408 h 24.448 q 2.048,0 3.456,-1.408 1.408,-1.472 1.408,-3.52 v -22.592 h 7.744 v 22.592 q 0,2.624 -1.024,4.928 -0.96,2.304 -2.688,4.032 -1.728,1.664 -4.032,2.688 -2.304,0.96 -4.864,0.96 h -24.448 q -2.624,0 -4.928,-0.96 -2.304,-1.024 -4.032,-2.688 -1.664,-1.728 -2.688,-4.032 -0.96,-2.304 -0.96,-4.928 z"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:moonhouse;-inkscape-font-specification:moonhouse;stroke-width:0.75"
+           id="path2214" />
+        <path
+           d="m 492.79073,-70.284597 q 2.048,0 3.456,-1.408 1.472,-1.408 1.472,-3.456 v -4.16 q 0,-2.048 -1.472,-3.456 -1.408,-1.472 -3.456,-1.472 h -31.744 v 13.952 z m 12.608,-4.864 q 0,2.624 -1.024,4.928 -0.96,2.24 -2.688,3.968 -1.664,1.728 -3.968,2.752 -2.304,0.96 -4.928,0.96 h -31.744 v 5.696 h -7.68 v -35.072 l 39.424,-0.064 q 2.624,0 4.928,1.024 2.304,0.96 3.968,2.688 1.728,1.728 2.688,4.032 1.024,2.304 1.024,4.928 z"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:moonhouse;-inkscape-font-specification:moonhouse;stroke-width:0.75"
+           id="path2216" />
+        <path
+           d="m 525.46073,-47.692597 5.312,-9.152 h -2.112 q -2.752,0 -5.056,-1.28 -2.304,-1.344 -3.712,-3.776 l -11.776,-20.16 h 8.768 l 9.536,16.384 q 0.768,1.216 2.24,1.216 h 6.528 l 10.304,-17.6 h 8.768 l -20.032,34.368 z"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:moonhouse;-inkscape-font-specification:moonhouse;stroke-width:0.75"
+           id="path2218" />
+        <path
+           d="m 563.17173,-82.060597 h 20.416 v 7.68 h -20.416 v 4.928 q 0,2.048 1.408,3.52 1.472,1.408 3.52,1.408 h 19.456 v 7.68 h -19.456 q -2.624,0 -4.928,-0.96 -2.304,-1.024 -4.032,-2.688 -1.664,-1.728 -2.688,-4.032 -0.96,-2.304 -0.96,-4.928 v -20.352 h 7.68 z"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:moonhouse;-inkscape-font-specification:moonhouse;stroke-width:0.75"
+           id="path2220" />
+        <path
+           d="m 589.49173,-56.844597 v -12.608 q 0,-2.624 0.96,-4.928 1.024,-2.304 2.688,-3.968 1.728,-1.728 4.032,-2.688 2.304,-1.024 4.928,-1.024 h 13.76 v 7.68 h -13.76 q -2.048,0 -3.52,1.472 -1.408,1.408 -1.408,3.456 v 12.608 z"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:moonhouse;-inkscape-font-specification:moonhouse;stroke-width:0.75"
+           id="path2223" />
+        <path
+           d="m 630.09973,-56.844597 q -2.624,0 -4.928,-0.96 -2.304,-1.024 -4.032,-2.688 -1.664,-1.728 -2.688,-4.032 -0.96,-2.304 -0.96,-4.928 0,-2.624 0.96,-4.928 1.024,-2.304 2.688,-3.968 1.728,-1.728 4.032,-2.688 2.304,-1.024 4.928,-1.024 h 21.184 q 2.624,0 4.928,1.024 2.304,0.96 3.968,2.688 1.728,1.664 2.688,3.968 1.024,2.304 1.024,4.928 0,2.624 -1.024,4.928 -0.96,2.304 -2.688,4.032 -1.664,1.664 -3.968,2.688 -2.304,0.96 -4.928,0.96 z m 0,-17.536 q -2.048,0 -3.52,1.472 -1.408,1.408 -1.408,3.456 0,2.048 1.408,3.52 1.472,1.408 3.52,1.408 h 21.184 q 2.048,0 3.456,-1.408 1.472,-1.472 1.472,-3.52 0,-2.048 -1.472,-3.456 -1.408,-1.472 -3.456,-1.472 z"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:moonhouse;-inkscape-font-specification:moonhouse;stroke-width:0.75"
+           id="path2225" />
+        <path
+           d="m 679.34973,-82.060597 h 17.088 q 2.56,0 4.864,1.024 2.304,0.96 4.032,2.688 1.728,1.664 2.688,3.968 1.024,2.304 1.024,4.928 v 12.608 h -7.744 v -12.608 q 0,-2.048 -1.408,-3.456 -1.408,-1.472 -3.456,-1.472 h -17.088 q -2.048,0 -3.52,1.472 -1.408,1.408 -1.408,3.456 v 12.608 h -7.68 v -12.608 q 0,-2.624 0.96,-4.928 1.024,-2.304 2.688,-3.968 1.728,-1.728 4.032,-2.688 2.304,-1.024 4.928,-1.024 z"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:moonhouse;-inkscape-font-specification:moonhouse;stroke-width:0.75"
+           id="path2227" />
+        <path
+           d="m 720.42173,-85.324597 h -7.68 v -4.48 h 7.68 z m -7.68,3.264 h 7.68 v 25.216 h -7.68 z"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:moonhouse;-inkscape-font-specification:moonhouse;stroke-width:0.75"
+           id="path2229" />
+        <path
+           d="m 766.42073,-56.844597 h -29.696 q -2.624,0 -4.928,-0.96 -2.304,-1.024 -4.032,-2.688 -1.664,-1.728 -2.688,-4.032 -0.96,-2.304 -0.96,-4.928 0,-2.624 0.96,-4.928 1.024,-2.304 2.688,-3.968 1.728,-1.728 4.032,-2.688 2.304,-1.024 4.928,-1.024 h 29.696 v 7.68 h -29.696 q -2.048,0 -3.52,1.472 -1.408,1.408 -1.408,3.456 0,2.048 1.408,3.52 1.472,1.408 3.52,1.408 h 29.696 z"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:moonhouse;-inkscape-font-specification:moonhouse;stroke-width:0.75"
+           id="path2231" />
+      </g>
       <rect
          style="opacity:0.8479996;fill:#ffffff;fill-opacity:0.99607843;stroke:none;stroke-width:1.78401959;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
          id="rect6936-4"
@@ -9168,7 +9203,7 @@
          rx="57.604149"
          inkscape:export-xdpi="25.404381"
          inkscape:export-ydpi="25.404381"
-         inkscape:export-filename="/home/ronal/git/GNU-Pytronic/other Sources/banner.png" />
+         inkscape:export-filename="/home/ronal/git/GNU-Pytronic/gnu-pytronic/Sources/banner.png" />
       <text
          xml:space="preserve"
          style="font-style:normal;font-weight:normal;font-size:32.01392746px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.3751632"
@@ -9178,7 +9213,7 @@
          transform="scale(1,-1)"
          inkscape:export-xdpi="25.404381"
          inkscape:export-ydpi="25.404381"
-         inkscape:export-filename="/home/ronal/git/GNU-Pytronic/other Sources/banner.png"><tspan
+         inkscape:export-filename="/home/ronal/git/GNU-Pytronic/gnu-pytronic/Sources/banner.png"><tspan
            sodipodi:role="line"
            x="518.11798"
            y="35.424915"
@@ -9202,7 +9237,7 @@
          transform="scale(1,-1)"
          inkscape:export-xdpi="25.404381"
          inkscape:export-ydpi="25.404381"
-         inkscape:export-filename="/home/ronal/git/GNU-Pytronic/other Sources/banner.png" />
+         inkscape:export-filename="/home/ronal/git/GNU-Pytronic/gnu-pytronic/Sources/banner.png" />
       <text
          xml:space="preserve"
          style="font-style:normal;font-weight:normal;font-size:9.3998785px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.54230064"
@@ -9212,7 +9247,7 @@
          transform="scale(1,-1)"
          inkscape:export-xdpi="25.404381"
          inkscape:export-ydpi="25.404381"
-         inkscape:export-filename="/home/ronal/git/GNU-Pytronic/other Sources/banner.png"><tspan
+         inkscape:export-filename="/home/ronal/git/GNU-Pytronic/gnu-pytronic/Sources/banner.png"><tspan
            sodipodi:role="line"
            id="tspan6932-7"
            x="-253.57281"
@@ -9227,7 +9262,7 @@
          transform="scale(1,-1)"
          inkscape:export-xdpi="25.404381"
          inkscape:export-ydpi="25.404381"
-         inkscape:export-filename="/home/ronal/git/GNU-Pytronic/other Sources/banner.png"><tspan
+         inkscape:export-filename="/home/ronal/git/GNU-Pytronic/gnu-pytronic/Sources/banner.png"><tspan
            sodipodi:role="line"
            id="tspan6932-7-3"
            x="-1.106987"
@@ -9240,11 +9275,11 @@
          inkscape:connector-curvature="0"
          inkscape:export-xdpi="25.404381"
          inkscape:export-ydpi="25.404381"
-         inkscape:export-filename="/home/ronal/git/GNU-Pytronic/other Sources/banner.png" />
+         inkscape:export-filename="/home/ronal/git/GNU-Pytronic/gnu-pytronic/Sources/banner.png" />
       <g
          id="g4364"
          transform="matrix(2.2249208,0,0,1.4418773,-413.86462,-353.33076)"
-         inkscape:export-filename="/home/ronal/git/GNU-Pytronic/other Sources/banner.png"
+         inkscape:export-filename="/home/ronal/git/GNU-Pytronic/gnu-pytronic/Sources/banner.png"
          inkscape:export-xdpi="25.404381"
          inkscape:export-ydpi="25.404381">
         <g
@@ -9296,7 +9331,7 @@
        id="icon-6"
        inkscape:export-xdpi="25.404381"
        inkscape:export-ydpi="25.404381"
-       inkscape:export-filename="/home/ronal/git/GNU-Pytronic/other Sources/banner.png">
+       inkscape:export-filename="/home/ronal/git/GNU-Pytronic/gnu-pytronic/Sources/banner.png">
       <!-- needed an id so fritzing could extract the element for either icon or breadboard view -->
       <g
          style="display:inline"
@@ -9369,6 +9404,6 @@
        inkscape:connector-curvature="0"
        inkscape:export-xdpi="25.404381"
        inkscape:export-ydpi="25.404381"
-       inkscape:export-filename="/home/ronal/git/GNU-Pytronic/other Sources/banner.png" />
+       inkscape:export-filename="/home/ronal/git/GNU-Pytronic/gnu-pytronic/Sources/banner.png" />
   </g>
 </svg>
