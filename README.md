@@ -8,7 +8,13 @@ Is multiplatform, now for there is a version available for windows.
 <p align="center"><img src="https://raw.githubusercontent.com/l337quez/GNU-Pytronic/master/other%20Sources/versiones/V%200.002.png"></p>  
 
 
+## Download 
+Requirements Windows 7 or 10
+<br>
+<a href="https://github.com/l337quez/GNU-Pytronic/raw/master/windows%20installer/alpha%200.002/GNU-Pytronic.exe">Available for Windos</a>
+
+<br>
 
 ## Dependencies for GNU-Linux
 webbrowser
-pip
+tkinter
