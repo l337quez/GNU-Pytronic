@@ -146,6 +146,17 @@ def fun_sufijo(*args):
 #Funcion para calcular capacitores
 def calculo_cap():
 
+    nada= None
+	#CALCULANDO TOLERANCIA
+
+    #creamos un diccionario para la tolerancia
+    dic_tole={'B':'0.10pf','C':'0.25pf','D':'0.5pf','E':'0.5%','F':'1%', 'G':'2%', 'H':'3%', 'J':'5%', 'K':'10%', 'M':'20%','N':'30%',
+    'P':'+100%, -0%','Z':'+80%, -20%'}
+    tolerancia=tole_combo.get()
+    tolerancia=dic_tole.get(tolerancia)
+    #setiamos la entry de Tolerancia
+    tole_cap.set(tolerancia)
+
     #CALCULADO LOS VOLTIOS
     #creamos un diccionario
     dic_volt={'0G':'4VDC','0L':'5.5VDC','0J':'6.3VDC','1A':'10VDC','1C':'16VDC','1E':'25VDC','1H':'50VDC','1J':'63VDC','1K':'80VDC','2A':'100VDC','2Q':'110VDC','2B':'125VDC',
@@ -161,73 +172,75 @@ def calculo_cap():
     pn=pn_combo.get() #primer numero
     sn=sn_combo.get() #segundo numero
     tn=cero_combo.get() #tercer numero
+   
+    #validamos si no hay seleccion de capacitacia
+    if (pn and pn.strip()) and (sn and sn.strip()):
+    #si selecciono valores
+    
+        if pn=='n'or sn=='n' or tn=='n':
+            if pn=='n':
+                valor = sn+tn #concatenamos caracteres
+                ceros= '0'
 
-    if pn=='n'or sn=='n' or tn=='n':
-        if pn=='n':
-            valor = sn+tn #concatenamos caracteres
-            ceros= '0'
+            elif sn=='n':
+                valor=pn+tn
+                ceros='00'
 
-        elif sn=='n':
-            valor=pn+tn
-            ceros='00'
+            elif ceros=='n':
+                valor=pn+sn
+                ceros='000'
 
-        elif ceros=='n':
-            valor=pn+sn
-            ceros='000'
-
-        capacitancia=float(valor+ceros)
-
-
-    elif pn=='p' or sn=='p':
-
-
-        if pn== 'p':
-            sn=float(sn)
-            valor=0.1*sn
-
-        elif sn=='p':
-            tn=float(tn)
-            pn=float(pn)
-            valor=pn+(tn/10)
-        capacitancia=float(valor)
+            capacitancia=float(valor+ceros)
 
 
+        elif pn=='p' or sn=='p':
+
+
+            if pn== 'p':
+                sn=float(sn)
+                valor=0.1*sn
+
+            elif sn=='p':
+                tn=float(tn)
+                pn=float(pn)
+                valor=pn+(tn/10)
+                
+            capacitancia=float(valor)
+
+            
+        else:
+            print (sn)
+            valor= pn+sn
+            valor=float(valor)
+
+	#    if ceros == 'None':
+	#        ceros=1
+	#    else:
+            ceros=int(tn)
+            #(1x10)^ceros
+            ceros=10**ceros
+            #multiplicamos el valor con el numero multiplicador
+            capacitancia= valor*ceros
+            
+            
+            
+        #validamos el sufijo
+        sufijo=combo.get()
+        #llamamos a la funcion sufijo
+        c=fun_sufijo(sufijo, capacitancia)
+        capacitancia=c
+         #por defecto el valor es en pf
+        capacitancia= str(capacitancia) + sufijo
+        #setiamos la entry capacitancia con el valor capacitancia
+        valor_cap.set(capacitancia)
+        
     else:
-        valor= pn+sn
-        valor=float(valor)
-
-#    if ceros == 'None':
-#        ceros=1
-#    else:
-        ceros=int(tn)
-        #(1x10)^ceros
-        ceros=10**ceros
-        #multiplicamos el valor con el numero multiplicador
-        capacitancia= valor*ceros
-
-    #validamos el sufijo
-    sufijo=combo.get()
-    print(capacitancia)
-    #llamamos a la funcion sufijo
-    c=fun_sufijo(sufijo, capacitancia)
-    capacitancia=c
-    print(capacitancia)
-    #por defecto el valor es en pf
-    capacitancia= str(capacitancia) + sufijo
-    #setiamos la entry capacitancia con el valor capacitancia
-    valor_cap.set(capacitancia)
+        #No hay capacitancia seleccionada para calcular
+        valor_cap.set(None)
 
 
 
-    #CALCULANDO TOLERANCIA
-
-    #creamos un diccionario para la tolerancia
-    dic_tole={'B':'0.10pf','C':'0.25pf','D':'0.5pf','E':'0.5%','F':'1%', 'G':'2%', 'H':'3%', 'J':'5%', 'K':'10%', 'M':'20%','N':'30%',
-    'P':'+100%, -0%','Z':'+80%, -20%'}
-    tolerancia=tole_combo.get()
-    tolerancia=dic_tole.get(tolerancia)
-    #setiamos la entry de Tolerancia
-    tole_cap.set(tolerancia)
+ 
 
 
 #   CALCULO DE CAPACITORES PARALELO Y SERIE
@@ -704,13 +717,13 @@ def select_image_cap(event):
 
 
 
-
+##############################################################################
 ##############################################################################
 # PESTAÑA ABOUT
 
 #validando el sistema operativo windows o linux
 operativo=sys.platform
-print(operativo)
+
 
 if operativo=='linux':
 	# INFORMACION DEL COMPUTADOR GNU LINUX
@@ -719,17 +732,17 @@ if operativo=='linux':
 	arch=subprocess.check_output("uname -m ", shell=True).strip();
 	enblanco = str.encode("  ")
 	result= sistema + enblanco + distri + enblanco +arch
-	print(result)
 	uname=StringVar()
 	uname.set(result)
-	Label(pestana2,text='System information:',font='Helvetica 10 bold').place(x=20,y=40)
-	Label(pestana2, textvariable=uname,font='Helvetica 10').place(x=152, y=40)
+	Label(pestana2,text='Platform:',font='Helvetica 10 bold').place(x=20,y=40)
+	Label(pestana2, textvariable=uname,font='Helvetica 10').place(x=87, y=40)
 else :
 	# INFORMACION DEL COMPUTADOR WINDOWS
 	print ('esta en windows')
-
-
-
+#nombre y version de windows con 
+#WMIC OS Get Caption   
+#arquitecuta con 
+#WMIC OS Get Caption   
 
 #texto informativo
 
@@ -744,11 +757,16 @@ Label(pestana2,text='Alpha 0.2',font='Helvetica 10').place(x=180,y=120)
 Label(pestana2,text='Contact:',font='Helvetica 10 bold').place(x=20,y=140)
 Label(pestana2,text='L337.ronald@gmail.com',font='Helvetica 10').place(x=80,y=140)
 
+#Colaboradores:
+Label(pestana2,text='Collaborators:',font='Helvetica 10 bold').place(x=20,y=250)
+
 #artistas
-Label(pestana2,text='Artists:',font='Helvetica 10 bold').place(x=20,y=240)
-Label(pestana2,text='Pablo Lopez',font='Helvetica 10').place(x=80,y=240)
+Label(pestana2,text='Artists:',font='Helvetica 10 bold').place(x=20,y=280)
+Label(pestana2,text='Pablo Lopez (Icon Pytronic)',font='Helvetica 10').place(x=73,y=280)
 
 #empaquetadores
+Label(pestana2,text='Packager:',font='Helvetica 10 bold').place(x=20,y=300)
+Label(pestana2,text='Francisco de la Peña (RPM)',font='Helvetica 10').place(x=90,y=300)
 
 #enlaces
 def callback(event):
