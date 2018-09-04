@@ -29,3 +29,8 @@ busque en la seccion de valores comerciales y luego que ingrese el valor comerci
 12. en las resistencias el % de tolerancia esta asociado a los valores revisar https://www.ecured.cu/Tolerancia_de_una_resistencia_el%C3%A9ctrica
 
 13. agregar un checkbox, los valores de busquedad comerciales son de 3 bandas, aqui estan los de 4 bandas https://www.inventable.eu/2015/06/04/como-se-leen-los-colores-de-las-resistencias/
+
+14. Hacer una animacion con sprites gunu, penguin
+https://www.youtube.com/watch?v=0ecFuoqNZ9Q
+meter una imagen en un canvas
+https://stackoverflow.com/questions/43009527/how-to-insert-an-image-in-a-canvas-item
