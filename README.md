@@ -16,5 +16,5 @@ Requirements Windows 7 or 10
 <br>
 
 ## Dependencies for GNU-Linux
-webbrowser
+webbrowser<br>
 tkinter
