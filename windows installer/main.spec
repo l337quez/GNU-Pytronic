@@ -2,6 +2,7 @@
 #Create by: Ronal Forero (L337)
 
 block_cipher = None
+recursos= 'C:\\Users\\Lion02\\Downloads\\GNU-Pytronic-master\\GNU-Pytronic-master\\gnu-pytronic\\Sources\\'
 
 
 a = Analysis(['main.py'],
@@ -20,36 +21,43 @@ pyz = PYZ(a.pure, a.zipped_data,
 
 
 #icono para la venta en windows 
-sources_files = [('logo.ico', 'C:\\Users\\nombre\\Documents\\Proyecto\\Sources\\logo.ico', 'DATA')]
+sources_files = [('logo.ico', 'C:\\Users\\Lion02\\Downloads\\GNU-Pytronic-master\\GNU-Pytronic-master\\gnu-pytronic\\Sources\\logo.ico', 'DATA')]
 
 #licencia
-sources= [('LICENSE', 'C:\\Users\\nombre\\Documents\\Proyecto\\Sources\\LICENSE', 'DATA')]
+Source= [('LICENSE', 'C:\\Users\\Lion02\\Downloads\\GNU-Pytronic-master\\GNU-Pytronic-master\\gnu-pytronic\\Sources\\LICENSE', 'DATA')]
 
 #codigo fuente
-sources += [('main.py', 'C:\\Users\\nombre\\Documents\\Proyecto\\Sources\\main.py', 'DATA')]
+Source += [('main.py', 'C:\\Users\\Lion02\\Downloads\\GNU-Pytronic-master\\GNU-Pytronic-master\\gnu-pytronic\\main.py', 'DATA')]
 
 #logo
-sources += [('pytronics.png', 'E:\\Warren\\PythonScripts\\LunarLanderSharable\\pytronics.png', 'DATA')] 
+Source += [('pytronics.png', 'C:\\Users\\Lion02\\Downloads\\GNU-Pytronic-master\\GNU-Pytronic-master\\gnu-pytronic\\pytronics.png', 'DATA')] 
+
+#banner
+Source += [('banner.png', 'C:\\Users\\Lion02\\Downloads\\GNU-Pytronic-master\\GNU-Pytronic-master\\gnu-pytronic\\Sources\\banner.png', 'DATA')] 
+
 
              
 exe = EXE(pyz,
           a.scripts,
           a.binaries,
           a.zipfiles,
-          a.datas + sources_files,
+          a.datas + sources_files + Source,
           name='GNU PYTRONIC.exe',
           debug=False,
           strip=None,
           upx=True,
-          console=True, icon='Sources/logo.ico')
+          console=None, icon='Sources/logo.ico')
           
-          
+
+
+
 coll = COLLECT(exe,
-			   Tree('C:\\Users\\nombre\\Documents\\Proyecto\\Sources','Sources'),
                a.binaries,
+               Tree(recursos,'Sources'),
                a.zipfiles,
                a.datas,
                strip=False,
                upx=True,
                name='main')
+
 

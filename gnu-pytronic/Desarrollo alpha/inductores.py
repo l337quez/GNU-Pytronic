@@ -306,7 +306,7 @@ def calculo_res():
 
 
     #creamos un diccionario
-    color_value={'brown':'1','red':'2','orange':'3','yellow':'4','green':'5','blue':'6','violet':'7','gray':'8','white':'9','black':'0'}
+    color_value={'brown':'1','red':'2','orange':'3','yellow':'4','green':'5','blue':'6','violet':'7','gray':'8','white':'9','black':'0', '10' : 'golden', '100' : 'silver' }
 
     tole_res={'N/A':'20%','Silver':'10%','Golden':'5%','Red':'2%','Brown':'1%','Green':'0.5%', 'Blue':'0.25%','Violet':'0.10%','Gray':'0.05%'}
 
@@ -315,14 +315,18 @@ def calculo_res():
 
 
     if banda4 == 'none':
-        print('entroo')
         label_ban4.configure(state='disable')
         ban4=' '
         ventana.update()
 
-    if banda5== 'Golden':
+    if banda5== 'Golden' :
         banda5= 'gold2'
-
+        
+    if  banda3  == 'golden':
+        banda3 ='gold2'
+        
+    elif  banda4  == 'golden': 
+        banda4 ='gold2'
 
     #setiamos el color de la banda1
     label_ban1.configure(bg=banda1)
@@ -331,34 +335,82 @@ def calculo_res():
     label_ban5.configure(bg=banda5)
 
 
-    print('color')
-    print(banda1)
     ban1=color_value.get(banda1)
     ban2=color_value.get(banda2)
 
 
 
-    if banda4 == 'none':
+    if  banda3 != 'gold2' and banda3 !='silver' and banda4 == 'none' :
+
         #banda3 multiplicador por ceros
         ban3=int(color_value.get(banda3))
         ban3=str(10**ban3)
         #asignamos solo los ceros
         ban3=ban3[1:]
 
-    else:
-        ban4=color_value.get(banda4)
-        label_ban4.configure(bg=banda4)
-        #banda 3 normal
-        ban3=color_value.get(banda3)
-        #banda4 multiplicador por ceros
-        ban4=int(color_value.get(banda4))
-        ban4=str(10**ban4)
-        ban4=ban4[1:]
+#Banda 4 activa con algun valor
+    elif banda4 != 'none' :
+        
+        if banda4 == 'gold2':
+            ban1=color_value.get(banda1)
+            ban2=color_value.get(banda2)
+            ban3=color_value.get(banda3)
+            ban123= ban1 + ban2 + ban3
+            ban123= str(float(ban123)/10)
+            valor_resis=ban123+'Ω'
+            #setiamos la entry del valor de resisitencia
+            resistor_value.set(valor_resis)    
+            
+        elif banda4 == 'silver':  
+            ban1=color_value.get(banda1)
+            ban2=color_value.get(banda2)
+            ban3=color_value.get(banda3)
+            ban123= ban1 + ban2 + ban3
+            ban123= str(float(ban123)/100)
+            valor_resis=ban123+'Ω'
+            #setiamos la entry del valor de resisitencia
+            resistor_value.set(valor_resis)             
+        
+        else:              
+            ban4=color_value.get(banda4)
+            label_ban4.configure(bg=banda4)
+            #banda 3 normal
+            ban3=color_value.get(banda3)
+            print(banda4)
+            #banda4 multiplicador por ceros
+            ban4=int(color_value.get(banda4))
+            ban4=str(10**ban4)
+            ban4=ban4[1:]
+            valor_resis=ban1+ ban2 + ban3 + ban4 +'Ω'
+            #setiamos la entry del valor de resisitencia
+            resistor_value.set(valor_resis)
+        
 
+    
+# si la banda 3 es silver o golden
+    if banda3 == 'gold2':
 
-    valor_resis=ban1+ ban2 + ban3 + ban4 +'Ω'
-    #setiamos la entry del valor de resisitencia
-    resistor_value.set(valor_resis)
+        ban1=color_value.get(banda1)
+        ban2=color_value.get(banda2)
+        ban12= ban1 +ban2
+        ban12= str(float(ban12)/10)
+        valor_resis=ban12+'Ω'
+        #setiamos la entry del valor de resisitencia
+        resistor_value.set(valor_resis)
+
+    elif banda3 == 'silver':
+        ban1=color_value.get(banda1)
+        ban2=color_value.get(banda2)
+        ban12= ban1 +ban2
+        ban12= str(float(ban12)/100)
+        valor_resis=ban12+'Ω'
+        #setiamos la entry del valor de resisitencia
+        resistor_value.set(valor_resis)
+        
+    elif banda3 != 'gold2' and banda3 !='silver' and banda4 == 'none' :    
+        valor_resis=ban1+ ban2 + ban3 + ban4 +'Ω'
+        #setiamos la entry del valor de resisitencia
+        resistor_value.set(valor_resis)
 
     #Setiamos la Tolerancia
     tolerancia=banda5
@@ -469,11 +521,11 @@ ban2_combo['values']=('brown','red','orange','yellow','green', 'blue','violet','
 #BANDA 3
 ban3_combo=ttk.Combobox(ventana, width= 6,height=3)
 ban3_combo.place(x=150, y=115)
-ban3_combo['values']=('brown','red','orange','yellow','green', 'blue','violet','gray','white','black' )
+ban3_combo['values']=('brown','red','orange','yellow','green', 'blue','violet','gray','white','black','golden','silver' )
 #BANDA 4
 ban4_combo=ttk.Combobox(ventana, width= 6,height=3)
 ban4_combo.place(x=220, y=115)
-ban4_combo['values']=('none','brown','red','orange','yellow','green', 'blue','violet','gray','white','black' )
+ban4_combo['values']=('none','brown','red','orange','yellow','green', 'blue','violet','gray','white','black','golden','silver'  )
 ban4_combo.current(0)
 
 #BANDA 5
