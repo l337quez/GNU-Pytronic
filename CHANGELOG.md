@@ -36,5 +36,6 @@ In this version several errors are corrected. The software has an icon thanks to
 
 <p align="center"><img src="https://raw.githubusercontent.com/l337quez/GNU-Pytronic/master/other%20Sources/versiones/V%200.1_autocompletado.png"></p>  
 
+## version estable 1.0
 
-
+<p>window not resizable</p>
