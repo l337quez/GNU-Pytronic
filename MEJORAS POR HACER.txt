@@ -34,3 +34,5 @@ busque en la seccion de valores comerciales y luego que ingrese el valor comerci
 https://www.youtube.com/watch?v=0ecFuoqNZ9Q
 meter una imagen en un canvas
 https://stackoverflow.com/questions/43009527/how-to-insert-an-image-in-a-canvas-item
+
+15. bloquear el tamaño de pantalla, para que no la puedan agrandar, ni maximizar, solo minimizar en el panel y abrir.
