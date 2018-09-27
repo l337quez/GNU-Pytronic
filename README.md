@@ -18,7 +18,7 @@ pytronic is a program developed in python 3, under the GPL V3 license. Basically
 
 
 <a href="https://www.youtube.com/watch?v=O8oAY8fAlwg&t=40s">
-<img border="0" alt="W3Schools" src="https://github.com/l337quez/GNU-Pytronic/blob/master/other%20Sources/youtube/beta0.1.png?raw=true" width="100" height="100">
+<img border="0" alt="W3Schools" src="https://github.com/l337quez/GNU-Pytronic/blob/master/other%20Sources/youtube/beta0.1.png?raw=true">
 </a>
 
 
