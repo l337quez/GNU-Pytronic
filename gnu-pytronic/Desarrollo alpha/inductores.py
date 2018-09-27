@@ -1,19 +1,4 @@
-﻿
-from tkinter import *
-from tkinter import ttk
-import os
-import sys
-import subprocess
-import re
-import webbrowser
-from tkinter import filedialog
-
-#####################################################################
-
-
-
- 
-########################################################################
+﻿########################################################################
 
 #INDUCTORES SMD
 #https://www.youtube.com/watch?v=b37zyN8WZiE
@@ -157,92 +142,92 @@ lista=['100','102','105','107','110','113','115','118','121','124','127','130','
 
 #Clase de Autocompletado
    
-class AutocompleteEntry(Entry):
-    def __init__(self, lista, *args, **kwargs):
+# class AutocompleteEntry(Entry):
+    # def __init__(self, lista, *args, **kwargs):
         
-        Entry.__init__(self, *args, **kwargs)
-        self.lista = lista        
-        self.var = self["textvariable"]
-        if self.var == '':
-            self.var = self["textvariable"] = StringVar()
+        # Entry.__init__(self, *args, **kwargs)
+        # self.lista = lista        
+        # self.var = self["textvariable"]
+        # if self.var == '':
+            # self.var = self["textvariable"] = StringVar()
 
-        self.var.trace('w', self.changed)
-        self.bind("<Right>", self.selection)
-        self.bind("<Up>", self.up)
-        self.bind("<Down>", self.down)
+        # self.var.trace('w', self.changed)
+        # self.bind("<Right>", self.selection)
+        # self.bind("<Up>", self.up)
+        # self.bind("<Down>", self.down)
         
-        self.lb_up = False
+        # self.lb_up = False
 
-    def changed(self, name, index, mode):  
+    # def changed(self, name, index, mode):  
 		
-        if self.var.get() == '':
-            self.lb.destroy()
-            self.lb_up = False
-        else:
-            words = self.comparison()
-            if words:            
-                if not self.lb_up:
-                    self.lb = Listbox(height=3, width= 10)
-                    self.lb.bind("<Double-Button-1>", self.selection)
-                    self.lb.bind("<Right>", self.selection)
-                    #+self.winfo_height()+27    --> +27 fue agregado porque el autocompletado salia encima del entry. originalmente no existe
-                    self.lb.place(x=self.winfo_x(), y=self.winfo_y()+self.winfo_height())
-                    self.lb_up = True
-                self.lb.delete(0, END)   
-                #TOMANDO EL VALOOR, el valor seleccionado es str1     
-                str1 = ''.join(words)
-                str=len(str1)
-				#guardamos el ultimo valor que suponesmo que sera menor que 7
-				#Guardamos en la variable res_smd
-                if str < 7:
-                    res_smd.set(str1)
+        # if self.var.get() == '':
+            # self.lb.destroy()
+            # self.lb_up = False
+        # else:
+            # words = self.comparison()
+            # if words:            
+                # if not self.lb_up:
+                    # self.lb = Listbox(height=3, width= 10)
+                    # self.lb.bind("<Double-Button-1>", self.selection)
+                    # self.lb.bind("<Right>", self.selection)
+                    # #+self.winfo_height()+27    --> +27 fue agregado porque el autocompletado salia encima del entry. originalmente no existe
+                    # self.lb.place(x=self.winfo_x(), y=self.winfo_y()+self.winfo_height())
+                    # self.lb_up = True
+                # self.lb.delete(0, END)   
+                # #TOMANDO EL VALOOR, el valor seleccionado es str1     
+                # str1 = ''.join(words)
+                # str=len(str1)
+				# #guardamos el ultimo valor que suponesmo que sera menor que 7
+				# #Guardamos en la variable res_smd
+                # if str < 7:
+                    # res_smd.set(str1)
                     
 
-                for w in words:
-                    self.lb.insert(END,w)
-            else:
-                if self.lb_up:
-                    self.lb.destroy()
-                    self.lb_up = False
+                # for w in words:
+                    # self.lb.insert(END,w)
+            # else:
+                # if self.lb_up:
+                    # self.lb.destroy()
+                    # self.lb_up = False
         
-    def selection(self, event):
+    # def selection(self, event):
 
-        if self.lb_up:
-            self.var.set(self.lb.get(ACTIVE))
-            self.lb.destroy()
-            self.lb_up = False
-            self.icursor(END)
+        # if self.lb_up:
+            # self.var.set(self.lb.get(ACTIVE))
+            # self.lb.destroy()
+            # self.lb_up = False
+            # self.icursor(END)
 
-    def up(self, event):
+    # def up(self, event):
 
-        if self.lb_up:
-            if self.lb.curselection() == ():
-                index = '0'
-            else:
-                index = self.lb.curselection()[0]
-            if index != '0':                
-                self.lb.selection_clear(first=index)
-                index = str(int(index)-1)                
-                self.lb.selection_set(first=index)
-                self.lb.activate(index) 
+        # if self.lb_up:
+            # if self.lb.curselection() == ():
+                # index = '0'
+            # else:
+                # index = self.lb.curselection()[0]
+            # if index != '0':                
+                # self.lb.selection_clear(first=index)
+                # index = str(int(index)-1)                
+                # self.lb.selection_set(first=index)
+                # self.lb.activate(index) 
 
 
-    def down(self, event):
+    # def down(self, event):
 
-        if self.lb_up:
-            if self.lb.curselection() == ():
-                index = '0'
-            else:
-                index = self.lb.curselection()[0]
-            if index != END:                        
-                self.lb.selection_clear(first=index)
-                index = str(int(index)+1)        
-                self.lb.selection_set(first=index)
-                self.lb.activate(index) 
+        # if self.lb_up:
+            # if self.lb.curselection() == ():
+                # index = '0'
+            # else:
+                # index = self.lb.curselection()[0]
+            # if index != END:                        
+                # self.lb.selection_clear(first=index)
+                # index = str(int(index)+1)        
+                # self.lb.selection_set(first=index)
+                # self.lb.activate(index) 
 
-    def comparison(self):
-        pattern = re.compile('.*' + self.var.get() + '.*')
-        return [w for w in self.lista if re.match(pattern, w)]
+    # def comparison(self):
+        # pattern = re.compile('.*' + self.var.get() + '.*')
+        # return [w for w in self.lista if re.match(pattern, w)]
 
 ########################################################################
 #Fin de Rutina de Autocompletado
@@ -423,12 +408,6 @@ def calculo_res():
 
 
 
-#####################################################################
-#Construyendo la ventana
-ventana = Tk()
-ventana.title("GNU Pytronics") #Titulo de la ventana
-#Dimencion de la ventana
-ventana.geometry("600x450+0+0")
 
 
 
@@ -436,117 +415,9 @@ ventana.geometry("600x450+0+0")
 
 
 
-#definimos variables
-
-
-
-#variables de resistores
-code_res =StringVar() #valor de la resistencia comercial
-resistor_value= StringVar()
-res_up=StringVar()
-res_down=StringVar()
-combo_tole=IntVar() #para setear el combobox de la tolerancia
-res_smd=StringVar() #para valor de resistor SMD
-resultado_smd=StringVar()
-
-
-#creamos demas objetos
-
-#Entry
-#Entry Capacitor
-
-
-#Entry Resistors
-
-Entry(ventana,  width= 10, textvariable=resistor_value).place(x=295, y=54) #value code
-
-#Autocompletado para la entry de resistencias SMD  value code SMD
-entry = AutocompleteEntry(lista, ventana, width= 10)
-entry.place(x=90, y=200)
-#Entry(ventana,  width= 14, textvariable=res_smd).place(x=90, y=180) 
-#entry_aproximar=Entry(ventana,  width= 8).place(x=10, y=400) #aproximar valor
-
-#Botones
-
-#Botones resistores
-Button(ventana, text= "Calculate", command= calculo_res).place(x=383, y=110) #Boton calcular
-Button(ventana, text= "Solve", command= calculo_color).place(x=474, y=50) #Boton solve value resistor
-Button(ventana, text= "Solve",command= smd).place(x=200, y=196) #Boton solve value resistor SMD
-
-
-
-#Labels
-#Labels Capacitores
-
-
-#Labels RESISTORES
-ima_resistor=PhotoImage(file="Sources/inductor.png")
-banner_home=Label(ventana,image=ima_resistor).place(x=84, y=40)
-
-smd_label= Label(ventana, textvariable=resultado_smd).place(x=290, y=180)
-
-
-label_tc=Label(ventana, text="Color Code:").place(x=10, y=95)
-Label(ventana, text="Value:").place(x=250, y=54)
-Label(ventana, text="SMD Code:").place(x=10, y=200)
-label_ban1=Label(ventana,  height= 2)
-label_ban1.place(x=110, y=50)
-label_ban2=Label(ventana,  height= 2)
-label_ban2.place(x=130, y=50)
-label_ban3=Label(ventana,  height= 2)
-label_ban3.place(x=150, y=50)
-label_ban4=Label(ventana,  height= 2)
-label_ban4.place(x=170, y=50)
-label_ban5=Label(ventana, bg="gold2",  height= 2)
-label_ban5.place(x=190, y=50)
-
-#COMBOBOX
 
 
 
 
 
 
-#######COMBOBOX PARA RESISTORES
-#BANDA 1
-ban1_combo=ttk.Combobox(ventana, width= 6, height=3)
-ban1_combo.place(x=10, y=115)
-ban1_combo['values']=('brown','red','orange','yellow','green', 'blue','violet','gray','white' )
-
-#BANDA 2
-ban2_combo=ttk.Combobox(ventana, width= 6,height=3)
-ban2_combo.place(x=80, y=115)
-ban2_combo['values']=('brown','red','orange','yellow','green', 'blue','violet','gray','white','black' )
-
-#BANDA 3
-ban3_combo=ttk.Combobox(ventana, width= 6,height=3)
-ban3_combo.place(x=150, y=115)
-ban3_combo['values']=('brown','red','orange','yellow','green', 'blue','violet','gray','white','black','golden','silver' )
-#BANDA 4
-ban4_combo=ttk.Combobox(ventana, width= 6,height=3)
-ban4_combo.place(x=220, y=115)
-ban4_combo['values']=('none','brown','red','orange','yellow','green', 'blue','violet','gray','white','black','golden','silver'  )
-ban4_combo.current(0)
-
-#BANDA 5
-ban5_combo=ttk.Combobox(ventana, width= 6, height=3)
-ban5_combo.place(x=290, y=115)
-ban5_combo['values']=('Silver','Golden','Red','Brown','Green', 'Blue','Violet','Gray' )
-ban5_combo.current(1)
-
-#TOLERANCIA
-tolera_combo=ttk.Combobox(ventana, width= 6, height=3)
-tolera_combo.place(x=390, y=54)
-tolera_combo['values']=('20%','10%','5%','1%','0.5%', '0.25%','0.10%','0.05%' )
-tolera_combo.current(2)
-
-
-
-
-
-
-#########################################################################
-
-
-
-ventana.mainloop()

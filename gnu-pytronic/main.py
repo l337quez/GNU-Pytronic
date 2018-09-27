@@ -788,6 +788,16 @@ if operativo=='linux':
 	uname.set(result)
 	Label(pestana2,text='Platform:',font='Helvetica 10 bold').place(x=20,y=40)
 	Label(pestana2, textvariable=uname,font='Helvetica 10').place(x=87, y=40)
+	
+	#Tema tkinter para los objetos
+	s=ttk.Style()
+	s.theme_names()
+	#"""======== if you are under win 8.1 you must see ..
+	# ('winnative', 'clam', 'alt', 'default', 'classic', 'vista', 'xpnative') you can use for example 'clam' ===== """
+	s.theme_use('clam')
+
+
+
 else :
 	# INFORMACION DEL COMPUTADOR WINDOWS
 	print ('esta en windows')
@@ -947,7 +957,7 @@ banner_home=Label(pestana1,image=ima_resistor).place(x=84, y=40)
 smd_label= Label(pestana1, textvariable=resultado_smd).place(x=290, y=180)
 
 Label(pestana1, text="Parallel Resistors:").place(x=10, y=340)
-Label(pestana1, text="Serial Resistors:").place(x=280, y=345)
+Label(pestana1, text="Serial Resistors:").place(x=280, y=340)
 label_cchino=Label(pestana1, text="Comercial value:").place(x=10, y=273)
 label_tc=Label(pestana1, text="Color Code:").place(x=10, y=95)
 Label(pestana1, text="Value:").place(x=250, y=54)
@@ -1061,11 +1071,11 @@ list_tc.insert(2,"Tamtalio")
 list_tc.insert(3,"Electrolityc")
 list_tc.insert(4,"Mica")
 list_tc.insert(4,"Polypropylene")
-list_tc.place(x=10, y=62)
+list_tc.place(x=10, y=62.5)
 #barra de scroll para el listbox
-scrollbar_list_tc= Scrollbar(pestana0, width= 12, orient="vertical")
+scrollbar_list_tc= Scrollbar(pestana0, width= 12.5, orient="vertical")
 scrollbar_list_tc.config(command=list_tc.yview)
-scrollbar_list_tc.place(x=112, y=67)
+scrollbar_list_tc.place(x=110.3, y=64.9)
 list_tc.config(yscrollcommand=scrollbar_list_tc.set)
 list_tc.select_set(0)
 #list_tc.selectedindex = 0
@@ -1081,10 +1091,5 @@ ventana.geometry("600x450+0+0")
 #icono del software 
 ventana.call('wm','iconphoto',ventana._w,PhotoImage(file='pytronics.png'))
 
-#Tema tkinter para los objetos
-s=ttk.Style()
-s.theme_names()
-#"""======== if you are under win 8.1 you must see ..
-# ('winnative', 'clam', 'alt', 'default', 'classic', 'vista', 'xpnative') you can use for example 'clam' ===== """
-#s.theme_use('clam')
+ventana.resizable(False, False)
 ventana.mainloop()
