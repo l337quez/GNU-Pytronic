@@ -23,13 +23,14 @@ pytronic is a program developed in python 3, under the GPL V3 license. Basically
 </a>
 </div>
 
+
 ## Download 
-Requirements Windows 7 or 10
+### .exe installer for Windows 10 or 7
 <br>
 <a href="https://github.com/l337quez/GNU-Pytronic/raw/master/windows%20installer/beta%200.1/GNU%20Pytronic%20V-Beta0.1.exe">Available for Windos</a>
 
-<br>
+### Use git clone for Gnu-Linux
 
 ## Dependencies for GNU-Linux
-webbrowser<br>
-tkinter
+- <a href="https://docs.python.org/3.1/library/webbrowser.html">webbrowser</a>
+- <a href="https://wiki.python.org/moin/TkInter">tkinter</a>
