@@ -861,15 +861,21 @@ banner_home=Label(pestana,image=banner).place(x=-2, y=15)
 ##############################################################################
 #Pestaña MORE
 
+def open_transformers ():
+	os.system('python transformadores.py')
+	
+	
+def open_coils ():
+	os.system('python inductores.py')
 
 pic_trans=PhotoImage(file="Sources/transformadores.png")
 Label(pestana2,image=pic_trans).place(x=27, y=20)
-Boton_calcular=Button(pestana2, text= "Transformers", command= calculo_cap).place(x=10, y=95)
+Boton_calcular=Button(pestana2, text= "Transformers", command= open_transformers).place(x=10, y=95)
 
 
 pic_coil=PhotoImage(file="Sources/inductores.png")
 Label(pestana2,image=pic_coil).place(x=165, y=40)
-Boton_calcular=Button(pestana2, text= "Coil & Inductors", command= calculo_cap).place(x=140, y=95)
+Boton_calcular=Button(pestana2, text= "Coil & Inductors", command= open_coils).place(x=140, y=95)
 
 ##############################################################################
 #Pestaña Capacitores
