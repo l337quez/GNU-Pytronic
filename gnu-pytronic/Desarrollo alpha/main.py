@@ -9,7 +9,21 @@ import webbrowser
 from tkinter import filedialog
 
 #importando archivos py
-import inductores
+#import inductores
+from inductores import calculo_ind
+#####################################################################
+
+
+# ENVIANDO VARIABLES AL ARCHIVO INDUCTORES
+
+def calculo_inductores ():
+    banda1=ban1_combo.get()
+    banda2=ban2_combo.get()
+    banda3=ban3_combo.get()
+    banda4=ban4_combo.get()
+    banda5=ban5_combo.get()
+    calculo_ind(banda1,banda2,banda3,banda4,banda5)
+    
 #####################################################################
 
 #Funcion sufijo para hacer converciones Mega, kilo, micro, pico
@@ -868,9 +882,7 @@ banner_home=Label(pestana,image=banner).place(x=-1, y=20)
 #Definimos Variables
 code_ind =StringVar() #valor de la resistencia comercial
 inductor_value= StringVar()
-int_up=StringVar()
-int_down=StringVar()
-int_combo_tole=IntVar() #para setear el combobox de la tolerancia
+ind_combo_tole=IntVar() #para setear el combobox de la tolerancia
 int_smd=StringVar() #para valor de resistor SMD
 resultado_int_smd=StringVar()
 
@@ -885,9 +897,9 @@ entry.place(x=90, y=200)
 #entry_aproximar=Entry(ventana,  width= 8).place(x=10, y=400) #aproximar valor
 
 #Botones inductors
-Button(pestana2, text= "Calculate", command= inductores.calculo_res).place(x=383, y=110) #Boton calcular
-Button(pestana2, text= "Solve", command= inductores.calculo_color).place(x=474, y=50) #Boton solve value resistor
-Button(pestana2, text= "Solve",command= inductores.smd).place(x=200, y=196) #Boton solve value resistor SMD
+Button(pestana2, text= "Calculate", command= calculo_inductores).place(x=383, y=110) #Boton calcular
+Button(pestana2, text= "Solve", command= lambda:inductores.calculo_color).place(x=474, y=50) #Boton solve value resistor
+Button(pestana2, text= "Solve",command= lambda:inductores.smd).place(x=200, y=196) #Boton solve value resistor SMD
 
 #Labels inductors
 ima_inductor=PhotoImage(file="Sources/inductor.png")

@@ -697,13 +697,13 @@ notebook.pack(fill='both',expand='yes')
 pestana=ttk.Frame(notebook)
 pestana0=ttk.Frame(notebook)
 pestana1=ttk.Frame(notebook)
-#pestana2=ttk.Frame(notebook)
 pestana2=ttk.Frame(notebook)
+pestana3=ttk.Frame(notebook)
 notebook.add(pestana,text='Home')
 notebook.add(pestana0,text='Capacitors')
 notebook.add(pestana1,text='Resistors')
-#notebook.add(pestana2,text='Inductors')
-notebook.add(pestana2,text='About')
+notebook.add(pestana2,text='More...')
+notebook.add(pestana3,text='About')
 
 
 noteStyler = ttk.Style()
@@ -731,8 +731,11 @@ def personalData(event):
     elif event.widget.index("current") == 2:
        pestanan= 2
        print("Resistors")
+    elif event.widget.index("current") == 3:
+       pestanan= 2
+       print("More...")
     else:
-       pestanan= 3
+       pestanan= 4
        print("About")
     #else:
     #   print("Not One!")
@@ -786,8 +789,8 @@ if operativo=='linux':
 	result= sistema + enblanco + distri + enblanco +arch
 	uname=StringVar()
 	uname.set(result)
-	Label(pestana2,text='Platform:',font='Helvetica 10 bold').place(x=20,y=40)
-	Label(pestana2, textvariable=uname,font='Helvetica 10').place(x=87, y=40)
+	Label(pestana3,text='Platform:',font='Helvetica 10 bold').place(x=20,y=40)
+	Label(pestana3, textvariable=uname,font='Helvetica 10').place(x=87, y=40)
 	
 	#Tema tkinter para los objetos
 	s=ttk.Style()
@@ -808,50 +811,65 @@ else :
 
 #texto informativo
 
-Label(pestana2,text='GNU Pytronic',font='Helvetica 10 bold').place(x=20,y=60)
-Label(pestana2,text=', software developed by Ronal Forero',font='Helvetica 10').place(x=108,y=60)
-Label(pestana2,text='License:',font='Helvetica 10 bold').place(x=20,y=80)
-Label(pestana2,text='GPL V.3',font='Helvetica 10').place(x=80,y=80)
-Label(pestana2,text='Version:',font='Helvetica 10 bold').place(x=20,y=100)
-Label(pestana2,text='Beta 0.1',font='Helvetica 10').place(x=80,y=100)
-Label(pestana2,text='Version in development:',font='Helvetica 10 bold').place(x=20,y=120)
-Label(pestana2,text='Alpha 0.2',font='Helvetica 10').place(x=180,y=120)
-Label(pestana2,text='Contact:',font='Helvetica 10 bold').place(x=20,y=140)
-Label(pestana2,text='L337.ronald@gmail.com',font='Helvetica 10').place(x=80,y=140)
+Label(pestana3,text='GNU Pytronic',font='Helvetica 10 bold').place(x=20,y=60)
+Label(pestana3,text=', software developed by Ronal Forero',font='Helvetica 10').place(x=108,y=60)
+Label(pestana3,text='License:',font='Helvetica 10 bold').place(x=20,y=80)
+Label(pestana3,text='GPL V.3',font='Helvetica 10').place(x=80,y=80)
+Label(pestana3,text='Version:',font='Helvetica 10 bold').place(x=20,y=100)
+Label(pestana3,text='Beta 0.1',font='Helvetica 10').place(x=80,y=100)
+Label(pestana3,text='Version in development:',font='Helvetica 10 bold').place(x=20,y=120)
+Label(pestana3,text='Alpha 0.2',font='Helvetica 10').place(x=180,y=120)
+Label(pestana3,text='Contact:',font='Helvetica 10 bold').place(x=20,y=140)
+Label(pestana3,text='L337.ronald@gmail.com',font='Helvetica 10').place(x=80,y=140)
 
 #Colaboradores:
-Label(pestana2,text='Collaborators:',font='Helvetica 10 bold').place(x=20,y=250)
+Label(pestana3,text='Collaborators:',font='Helvetica 10 bold').place(x=20,y=250)
 
 #artistas
-Label(pestana2,text='Artists:',font='Helvetica 10 bold').place(x=20,y=280)
-Label(pestana2,text='Pablo Lopez (Icon Pytronic)',font='Helvetica 10').place(x=73,y=280)
+Label(pestana3,text='Artists:',font='Helvetica 10 bold').place(x=20,y=280)
+Label(pestana3,text='Pablo Lopez (Icon Pytronic)',font='Helvetica 10').place(x=73,y=280)
 
 #empaquetadores
-Label(pestana2,text='Packager:',font='Helvetica 10 bold').place(x=20,y=300)
-Label(pestana2,text='Francisco de la Peña (RPM)',font='Helvetica 10').place(x=90,y=300)
+Label(pestana3,text='Packager:',font='Helvetica 10 bold').place(x=20,y=300)
+Label(pestana3,text='Francisco de la Peña (RPM)',font='Helvetica 10').place(x=90,y=300)
 
 #enlaces
 def callback(event):
     webbrowser.open_new(r"https://ronaldl337.wordpress.com/tag/gnu-pytronic/")
 
-link = Label(pestana2, text="GNU Pyttonics Repository", fg="blue", cursor="hand2")
+link = Label(pestana3, text="GNU Pyttonics Repository", fg="blue", cursor="hand2")
 link.place(x=20,y=160)
 link.bind("<Button-1>", callback)
 
 def callback(event):
     webbrowser.open_new(r"https://raw.githubusercontent.com/l337quez/GNU-Pytronic/master/other%20Sources/manual.pdf")
 
-link = Label(pestana2, text="User manual", fg="blue", cursor="hand2")
+link = Label(pestana3, text="User manual", fg="blue", cursor="hand2")
 link.place(x=20,y=180)
 link.bind("<Button-1>", callback)
+
 
 ##############################################################################
 #Pestaña HOME
 
 #la imagen debe tener una dimencion de 600x407
 banner=PhotoImage(file="Sources/banner.png")
-banner_home=Label(pestana,image=banner).place(x=-1, y=20)
+banner_home=Label(pestana,image=banner).place(x=-2, y=15)
 
+
+##############################################################################
+##############################################################################
+#Pestaña MORE
+
+
+pic_trans=PhotoImage(file="Sources/transformadores.png")
+Label(pestana2,image=pic_trans).place(x=27, y=20)
+Boton_calcular=Button(pestana2, text= "Transformers", command= calculo_cap).place(x=10, y=95)
+
+
+pic_coil=PhotoImage(file="Sources/inductores.png")
+Label(pestana2,image=pic_coil).place(x=165, y=40)
+Boton_calcular=Button(pestana2, text= "Coil & Inductors", command= calculo_cap).place(x=140, y=95)
 
 ##############################################################################
 #Pestaña Capacitores
@@ -888,7 +906,7 @@ paralelor2=DoubleVar()
 
 #Entry
 #Entry Capacitor
-entry_codigo=Entry(pestana0,  width= 10, textvariable=codigo_cap).place(x=10, y=225) #codigo del capacitor
+entry_codigo=Entry(pestana0,  width= 12, textvariable=codigo_cap).place(x=10, y=225) #codigo del capacitor
 entry_valor=Entry(pestana0,  width= 10, state='readonly', textvariable=valor_cap).place(x=10, y=160) #capacitancia
 entry_volt=Entry(pestana0,  width= 10,state='readonly', textvariable=volts_cap).place(x=110, y=160) #voltaje
 entry_tol=Entry(pestana0,  width= 10,state='readonly', textvariable=tole_cap).place(x=210, y=160) #tolerancia
@@ -917,19 +935,19 @@ entry.place(x=90, y=200)
 #Botones
 #Botones capacitores
 Boton_calcular=Button(pestana0, text= "Calculate", command= calculo_cap).place(x=455, y=58)
-Boton_buscar=Button(pestana0, text= "Search", command=buscar_cap).place(x=182, y=220)
+Boton_buscar=Button(pestana0, text= "Search", command=buscar_cap).place(x=170, y=220)
 Boton_graficar=Button(pestana0, text="Graficar").place(x=410, y=600)
 Boton_guardar_data=Button(pestana0, text="Guardar DATA", state='disabled').place(x=10, y=570)
-Boton_paralelo=Button(pestana0, text= "+", command=cap_paralelo).place(x=120, y=360)
-Boton_serie=Button(pestana0, text= "+", command=cap_serie).place(x=390, y=360)
+Boton_paralelo=Button(pestana0, text= "+", command=cap_paralelo).place(x=100, y=360)
+Boton_serie=Button(pestana0, text= "+", command=cap_serie).place(x=370, y=360)
 
 #Botones resistores
 Button(pestana1, text= "Calculate", command= calculo_res).place(x=383, y=110) #Boton calcular
 Button(pestana1, text= "Solve", command= calculo_color).place(x=474, y=50) #Boton solve value resistor
 Button(pestana1, text= "Solve",command= smd).place(x=200, y=196) #Boton solve value resistor SMD
 Button(pestana1, text= "Search", command=buscar_res).place(x=130, y=288) #Boton buscar
-Button(pestana1, text= "+", command=res_paralelo).place(x=120, y=360) #Boton_paralelo
-Button(pestana1, text= "+", command=res_serie).place(x=390, y=360) #Boton serie
+Button(pestana1, text= "+", command=res_paralelo).place(x=100, y=360) #Boton_paralelo
+Button(pestana1, text= "+", command=res_serie).place(x=370, y=360) #Boton serie
 
 
 #Labels
@@ -952,9 +970,9 @@ label_dib_cap.place(x=450, y=110)
 
 #Labels RESISTORES
 ima_resistor=PhotoImage(file="Sources/resistencia.png")
-banner_home=Label(pestana1,image=ima_resistor).place(x=84, y=40)
+Label(pestana1,image=ima_resistor).place(x=84, y=40)
 
-smd_label= Label(pestana1, textvariable=resultado_smd).place(x=290, y=180)
+smd_label= Label(pestana1, textvariable=resultado_smd).place(x=290, y=200)
 
 Label(pestana1, text="Parallel Resistors:").place(x=10, y=340)
 Label(pestana1, text="Serial Resistors:").place(x=280, y=340)
@@ -1018,7 +1036,7 @@ combo.current(2)
 
 #Combobox  convercion pf a uf imput comercial...
 in_combo=ttk.Combobox(pestana0, width= 2)
-in_combo.place(x=110, y=225)
+in_combo.place(x=120, y=225)
 in_combo['values']=('f','mf','uf','pf','nf')
 in_combo.current(3)
 
