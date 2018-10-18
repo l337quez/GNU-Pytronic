@@ -31,6 +31,8 @@ pytronic is a program developed in python 3, under the GPL V3 license. Basically
 
 ### Use git clone for Gnu-Linux
 
+<br>
+
 ## Dependencies for GNU-Linux
 - <a href="https://docs.python.org/3.1/library/webbrowser.html">webbrowser</a>
 - <a href="https://wiki.python.org/moin/TkInter">tkinter</a>
