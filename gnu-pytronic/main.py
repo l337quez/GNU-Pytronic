@@ -869,7 +869,7 @@ def open_coils ():
 	os.system('python inductores.py')
 
 pic_trans=PhotoImage(file="Sources/transformadores.png")
-Label(pestana2,image=pic_trans).place(x=27, y=20)
+Label(pestana2,image=pic_trans).place(x=31, y=20)
 Boton_calcular=Button(pestana2, text= "Transformers", command= open_transformers).place(x=10, y=95)
 
 
@@ -1111,7 +1111,9 @@ list_tc.bind('<<ListboxSelect>>',select_image_cap)
 
 
 #########################################################################
-ventana.geometry("600x450+0+0")
+#Geometria y posicion de la ventana
+
+ventana.geometry("600x450+120+120")
 #icono del software 
 ventana.call('wm','iconphoto',ventana._w,PhotoImage(file='pytronics.png'))
 

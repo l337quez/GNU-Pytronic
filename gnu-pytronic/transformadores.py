@@ -460,9 +460,7 @@ resultado_smd=StringVar()
 
 Entry(ventana,  width= 10, textvariable=resistor_value).place(x=295, y=54) #value code
 
-#Autocompletado para la entry de resistencias SMD  value code SMD
-entry = AutocompleteEntry(lista, ventana, width= 10)
-entry.place(x=90, y=200)
+
 #Entry(ventana,  width= 14, textvariable=res_smd).place(x=90, y=180) 
 #entry_aproximar=Entry(ventana,  width= 8).place(x=10, y=400) #aproximar valor
 
@@ -470,8 +468,6 @@ entry.place(x=90, y=200)
 
 #Botones resistores
 Button(ventana, text= "Calculate", command= calculo_res).place(x=383, y=110) #Boton calcular
-Button(ventana, text= "Solve", command= calculo_color).place(x=474, y=50) #Boton solve value resistor
-Button(ventana, text= "Solve",command= smd).place(x=200, y=196) #Boton solve value resistor SMD
 
 
 
@@ -488,7 +484,7 @@ smd_label= Label(ventana, textvariable=resultado_smd).place(x=290, y=180)
 
 label_tc=Label(ventana, text="Color Code:").place(x=10, y=95)
 Label(ventana, text="Value:").place(x=250, y=54)
-Label(ventana, text="SMD Code:").place(x=10, y=200)
+
 label_ban1=Label(ventana,  height= 2)
 label_ban1.place(x=110, y=50)
 label_ban2=Label(ventana,  height= 2)
@@ -509,37 +505,6 @@ label_ban5.place(x=190, y=50)
 
 #######COMBOBOX PARA RESISTORES
 #BANDA 1
-ban1_combo=ttk.Combobox(ventana, width= 6, height=3)
-ban1_combo.place(x=10, y=115)
-ban1_combo['values']=('brown','red','orange','yellow','green', 'blue','violet','gray','white' )
-
-#BANDA 2
-ban2_combo=ttk.Combobox(ventana, width= 6,height=3)
-ban2_combo.place(x=80, y=115)
-ban2_combo['values']=('brown','red','orange','yellow','green', 'blue','violet','gray','white','black' )
-
-#BANDA 3
-ban3_combo=ttk.Combobox(ventana, width= 6,height=3)
-ban3_combo.place(x=150, y=115)
-ban3_combo['values']=('brown','red','orange','yellow','green', 'blue','violet','gray','white','black','golden','silver' )
-#BANDA 4
-ban4_combo=ttk.Combobox(ventana, width= 6,height=3)
-ban4_combo.place(x=220, y=115)
-ban4_combo['values']=('none','brown','red','orange','yellow','green', 'blue','violet','gray','white','black','golden','silver'  )
-ban4_combo.current(0)
-
-#BANDA 5
-ban5_combo=ttk.Combobox(ventana, width= 6, height=3)
-ban5_combo.place(x=290, y=115)
-ban5_combo['values']=('Silver','Golden','Red','Brown','Green', 'Blue','Violet','Gray' )
-ban5_combo.current(1)
-
-#TOLERANCIA
-tolera_combo=ttk.Combobox(ventana, width= 6, height=3)
-tolera_combo.place(x=390, y=54)
-tolera_combo['values']=('20%','10%','5%','1%','0.5%', '0.25%','0.10%','0.05%' )
-tolera_combo.current(2)
-
 
 
 
