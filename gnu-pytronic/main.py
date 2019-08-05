@@ -267,7 +267,7 @@ def cap_serie ():
 #Funciones para la pestaña resisitencia
 def buscar_res():
     valor_res= code_res.get()
-    #validamos que lo ingresado sea numeros
+    #validamos que lo ingresado sea numeros con la funcion isdigit()
     digit=valor_res.isdigit()
 
     print(valor_res)
@@ -501,18 +501,46 @@ class AutocompleteEntry(Entry):
 def calculo_color():
     #obtenmos el valor numerico
     valor_num=resistor_value.get()
+    #convertimos letras en mayuscula si estan en minuscula
+    valor_num=valor_num.upper()
     val1=valor_num[:1]
     val2=valor_num[1:2]
     val3=valor_num[2:]
     val4=valor_num[3:4]
+    valor=valor_num[:]
 
 
+    #tamaño de la cantidad de ceros
     ceros=len(val3)
-    #(1x10)^ceros
-    ceros=str(10**int(ceros))
-    # ceros=str(ceros)
-    ceros=str(len(ceros[1:]))
 
+    #validamos que lo ingresado son prefijos K, M  caso contrario son ceros 000
+    digit=val3.isdigit()
+    
+    if digit == False: #Si son letras
+        print('son letras')     
+        print(len(valor_num)) 
+        #validmos que se una sola letra
+        #if len(val3) == 1:
+        K=1000
+        M=1000000
+
+        print('la letra es ') 
+        print(valor_num[len(valor) -1:]) 
+            
+        print('valor sin letra') 
+        print(valor_num[:len(valor) -1]) 
+
+        # else : # Hay mas de una letra
+            # resistor_value.set('ERROR')
+            # print(valor_num[len(valor) -1:]) 
+            
+        
+        
+    elif len(val3) > 0: # Caso contrario son numeros
+        print('son numeros')
+        ceros=str(10**int(ceros))
+        # ceros=str(ceros)
+        ceros=str(len(ceros[1:]))
 
 
     #Si es de 4 bandas
@@ -922,6 +950,8 @@ Entry(pestana0,  width= 10,textvariable=paraleloc1).place(x=10, y=360)
 Entry(pestana0,  width= 10,textvariable=paraleloc2).place(x=10, y=390)
 Entry(pestana0,  width= 10,textvariable=seriec1).place(x=280, y=360)
 Entry(pestana0,  width= 10,textvariable=seriec2).place(x=280, y=390)
+Entry(pestana0,  width= 12,textvariable=seriec2).place(x=10, y=290)
+Entry(pestana0,  width= 10, state='readonly',textvariable=cap_down).place(x=210, y=290) #capacitor code
 
 #Entry Resistors
 entry_codigo=Entry(pestana1,  width= 10, textvariable=code_res).place(x=10, y=295) #codigo del resisitor
@@ -946,6 +976,7 @@ Boton_graficar=Button(pestana0, text="Graficar").place(x=410, y=600)
 Boton_guardar_data=Button(pestana0, text="Guardar DATA", state='disabled').place(x=10, y=570)
 Boton_paralelo=Button(pestana0, text= "+", command=cap_paralelo).place(x=100, y=360)
 Boton_serie=Button(pestana0, text= "+", command=cap_serie).place(x=370, y=360)
+Boton_buscar=Button(pestana0, text= "Solve", command=buscar_cap).place(x=130, y=285)
 
 #Botones resistores
 Button(pestana1, text= "Calculate", command= calculo_res).place(x=383, y=110) #Boton calcular
@@ -969,6 +1000,8 @@ label_code=Label(pestana0, text="Capacitor code:").place(x=140, y=44)
 Label(pestana0, text="Volts").place(x=140, y=84)
 Label(pestana0, text="Capacitance").place(x=231, y=84)
 Label(pestana0, text="Tolerance").place(x=342, y=84)
+Label(pestana0, text="Capacitor code:").place(x=210, y=270)
+Label(pestana0, text="Capacitor value:").place(x=10, y=270)
 #label dibujo de capacitor
 label_dib_cap=Label(pestana0)
 label_dib_cap.place(x=450, y=110)
