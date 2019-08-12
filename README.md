@@ -29,7 +29,8 @@ pytronic is a program developed in python 3, under the GPL V3 license. Basically
 <br>
 <a href="https://github.com/l337quez/GNU-Pytronic/raw/master/windows%20installer/beta%200.1/GNU%20Pytronic%20V-Beta0.1.exe">Available for Windows</a>
 
-### Use git clone for Gnu-Linux
+### installer for Gnu-Linux ARCH
+https://github.com/l337quez/gnu-pytronic-linux-installer
 
 <br>
 
