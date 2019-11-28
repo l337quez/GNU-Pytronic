@@ -2,15 +2,26 @@
 pytronic is a program developed in python 3, under the GPL V3 license. Basically it is a basic tool for the calculation of analog components such as resistors, capacitors and inductors, also transformers.
 
 ## Last version beta 0.1
-### Aug 7 2018 Ronal Forero<L337.ronald AT gmail DOT com> -
+### Nov 28 2019 Ronal Forero<L337.ronald AT gmail DOT com> -
 <p align="center"><img src="https://raw.githubusercontent.com/l337quez/GNU-Pytronic/master/other%20Sources/versiones/V%200.1.png"></p>  
 
-<p>In this version, several components that did not work correctly were fixed. In the graphic interface there were small changes, to make the software more intuitive, a style is added to the aesthetics of the software so that both Windows and Gnu-Linux (GTK) look more beautiful. Also some boxes of entrance, buttons and labels are reorganized, so that the user has a greater facility in the handling of the software.</p>
+<p>In this version some bugs were fixed in the calculation of resistors.</p>
 
-<p>In the resistors tab, the autocompletion is added for the SMD resistors, in this way the software can predict the value that the user is looking for. The SMD resistors section still supports all the nominations, for now it has support for the basic nomenclature.</p>
+<p>Some details in the visual aspect were fixed, to obtain more compatibility with the KDE desktop.</p>
 
-<p>The software information is added in the Windows installer.
+<p>
+In the session of capacitors a detail was fixed that was in the search for commercial capacitors
 </p>
+
+
+
+
+
+
+
+
+
+
 
 
 <p align="center"><img src="https://raw.githubusercontent.com/l337quez/GNU-Pytronic/master/other%20Sources/versiones/V%200.1_autocompletado.png"></p>  
