@@ -904,9 +904,9 @@ Label(pestana3,text=', software developed by Ronal Forero',font='Helvetica 10', 
 Label(pestana3,text='License:',font='Helvetica 10 bold', bg="gainsboro").place(x=20,y=80)
 Label(pestana3,text='GPL V.3',font='Helvetica 10', bg="gainsboro").place(x=80,y=80)
 Label(pestana3,text='Version:',font='Helvetica 10 bold', bg="gainsboro").place(x=20,y=100)
-Label(pestana3,text='Beta 0.2',font='Helvetica 10', bg="gainsboro").place(x=80,y=100)
+Label(pestana3,text='Beta 1.1',font='Helvetica 10', bg="gainsboro").place(x=80,y=100)
 Label(pestana3,text='Version in development:',font='Helvetica 10 bold', bg="gainsboro").place(x=20,y=120)
-Label(pestana3,text='Alpha 0.3',font='Helvetica 10', bg="gainsboro").place(x=180,y=120)
+Label(pestana3,text='Alpha 1.2',font='Helvetica 10', bg="gainsboro").place(x=180,y=120)
 Label(pestana3,text='Contact:',font='Helvetica 10 bold', bg="gainsboro").place(x=20,y=140)
 Label(pestana3,text='L337.ronald@gmail.com',font='Helvetica 10', bg="gainsboro").place(x=80,y=140)
 
