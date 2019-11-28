@@ -3,7 +3,7 @@ pytronic is a program developed in python 3, under the GPL V3 license. Basically
 
 ## Last version beta 0.1
 ### Nov 28 2019 Ronal Forero<L337.ronald AT gmail DOT com> -
-<p align="center"><img src="https://raw.githubusercontent.com/l337quez/GNU-Pytronic/master/other%20Sources/versiones/V%200.1.png"></p>  
+<p align="center"><img src="https://raw.githubusercontent.com/l337quez/GNU-Pytronic/master/other%20Sources/versiones/V%201.1.png"></p>  
 
 <p>In this version some bugs were fixed in the calculation of resistors.</p>
 
@@ -13,18 +13,7 @@ pytronic is a program developed in python 3, under the GPL V3 license. Basically
 In the session of capacitors a detail was fixed that was in the search for commercial capacitors
 </p>
 
-
-
-
-
-
-
-
-
-
-
-
-<p align="center"><img src="https://raw.githubusercontent.com/l337quez/GNU-Pytronic/master/other%20Sources/versiones/V%200.1_autocompletado.png"></p>  
+ 
 
 
 ## Video on Youtube
