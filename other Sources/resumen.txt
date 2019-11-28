@@ -1,0 +1,35 @@
+ GNU Pytronic es un software multiplataforma disponible para Windows y GNU-Linux. Licenciado
+ bajo la licencia libre de GPL version 3. Desarrollado en pytrhon con el framewrok tkinter, este software
+ esta diseñado diseñado para que ser usado por
+ estudiantes, tecnicos e ingenieros en electronica, cuenta con herramientas para hacer calculo 
+ de componentes discretos como capacitores y resistores. El software es desarrollado por el 
+ Ingeniero Electronico Ronal Forero.
+ 
+ 
+Actualemente se encuentra disponible en la version beta 1.1, el programa tiene la capacidad de trabajar con capacitores
+y resistores, en las siguientes versiones se iran agregando nuevas herramientas y mas componentes.
+
+
+En la sesion de Capacitores podremos conocer mediante el codigo descrito en el mismo, el voltaje que soporta el capacitor
+la tolerancia y la capacitancia. El software esta capacitado para dar informacion del componente sin importar la nomenclatura 
+del codigo. Ya que contiene todas las nomenclaturas que existen estan validadas. Tiene una opcion para que el valor de capacitancia
+sea obtenido en cualquiera de los sufijos: faradios, mili faradios, micro faradios, pico faradios y nano faradios. Esta en la capacidad
+de conseguir valores de capacitancia comerciales ingresando un valor cualquiera de capacitancia, si el valor ingresado no es
+comercial, entonces mostrara un valor comercial de capacitancia por encima del valor ingresado y un valor por debajo. Tiene una herramienta
+para calculo de capacitores en serie y en paralelo. No todos los tipos de capacitores tienen la misma informacion, asi que podremos
+conocer que informacion nos esta dando capcaitor y que tipo de capacitor.
+
+
+ En la sesion de Resistores
+ 
+ 
+ 
+La intension de este software es facilitar el calculo, pero tambien permitiendo verificar si los valores ingresados 
+para conocer si son componentes electronicos comerciales. Su proposito, es facilitar el calculo de forma facil e intutiva, esto 
+permite que no solo tenga un uso personal, sino que se puede adaptar a una materia educativa.
+
+
+
+
+
+

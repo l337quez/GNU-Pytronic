@@ -1,6 +1,15 @@
+    MEJORAS REALIZADAS
  
-1. Mejorar instegridad con  escritorio KDE
-https://stackoverflow.com/questions/6500630/making-tk-look-like-a-native-linux-app
+* validar en los capacitores micro (u), pico (p)
+ 
+* Mejorar instegridad con  escritorio KDE
+https://stackoverflow.com/questions/6500630/making-tk-look-like-a-native-linux-app 
+
+* bloquear el tamaño de pantalla, para que no la puedan agrandar, ni maximizar, solo minimizar en el panel y abrir.
+ 
+=================================================================================================================================================
+ 
+1. 
 
 2. Mejorar dimenciones de los objetos para que se vea mejor en windows
 
@@ -11,7 +20,7 @@ busque en la seccion de valores comerciales y luego que ingrese el valor comerci
 
 5. validar en los resitores kilo (k), mega(m)
 
-6. validar en los capacitores micro (u), pico (p)
+6. 
 
 7. validar el % de tolerancia en los resistores, no funciona todavia
 
@@ -35,6 +44,6 @@ https://www.youtube.com/watch?v=0ecFuoqNZ9Q
 meter una imagen en un canvas
 https://stackoverflow.com/questions/43009527/how-to-insert-an-image-in-a-canvas-item
 
-15. bloquear el tamaño de pantalla, para que no la puedan agrandar, ni maximizar, solo minimizar en el panel y abrir.
+15. 
 
 16. revisar, pero el color negra no deberia estar en la ultima franja

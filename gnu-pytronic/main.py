@@ -1,12 +1,14 @@
-﻿
+
 from tkinter import *
 from tkinter import ttk
+
 import os
 import sys
 import shlex, subprocess
 import re
 import webbrowser
 from tkinter import filedialog
+from ttkthemes import ThemedStyle
 
 #####################################################################
 
@@ -14,11 +16,11 @@ from tkinter import filedialog
 # para capacitores y resistencias
 
 # def sufijo():
-	# # #sufijo es una variable que contiene el valor del combobox
-	
-	# sufijo_cap=["pF","nF","uF","mF","F"]
-	# sufijo_res=["Ω","KΩ","MΩ","GΩ"]
-	
+    # # #sufijo es una variable que contiene el valor del combobox
+    
+    # sufijo_cap=["pF","nF","uF","mF","F"]
+    # sufijo_res=["Ω","KΩ","MΩ","GΩ"]
+    
 
     # if sufijo == "nf" :
         # c=capacitancia/1000
@@ -36,17 +38,17 @@ from tkinter import filedialog
     # else :
         # c = capacitancia
         # #retornar capacitancia y el sufijo que lo llame
-        	
-	
-	# if sufijo =="MΩ": // mega ohm
-		# r=resistencia*1000000
-	
-	# elif sufijo =="KΩ": // kilo ohm
-		# r=resistencia*1000
-	
-	# else sufijo =="Ω": //ohm
-		# r=resistencia
-		
+            
+    
+    # if sufijo =="MΩ": // mega ohm
+        # r=resistencia*1000000
+    
+    # elif sufijo =="KΩ": // kilo ohm
+        # r=resistencia*1000
+    
+    # else sufijo =="Ω": //ohm
+        # r=resistencia
+        
     # return c
 
 
@@ -57,7 +59,7 @@ def buscar_cap():
     digit=numero.isdigit()
     
     
-	 # #validamos el sufijo
+     # #validamos el sufijo
     # sufijo_in=in_combo.get()
     # sufijo_out=out_combo.get()
 
@@ -85,7 +87,45 @@ def buscar_cap():
         ,6800,8200,10000,12000,15000,18000,22000,27000,33000,39000,47000,56000,68000,82000,100000,120000,150000,180000,220000,330000,390000,470000,560000,680000,820000,1000000)
         #convertimos a una lista string
         numero= float(numero)
+        
+        
+        #El array tiene valores de pico faradios
+        conversor=in_combo.get()
+        print(conversor)        
+        
+        if conversor == "pf":
+            pass
+        
+        elif conversor == "nf":
+            numero=numero/1000
+            print(numero)
+            
+        elif conversor == "uf":
+            numero=numero/1000000
+            print(numero)
+            
+        elif conversor == "mf":
+            numero=numero/1000000000
+            print(numero)
+            
+        elif conversor == "f":
+            numero=numero/1000000000000
+            print("entroo")
+            print(numero)
+        
         disponible=numero in cap_comercial
+
+
+        
+#             #creamos un diccionario para la tolerancia
+#     dic_tole={'B':'0.10pf','C':'0.25pf','D':'0.5pf','E':'0.5%','F':'1%', 'G':'2%', 'H':'3%', 'J':'5%', 'K':'10%', 'M':'20%','N':'30%',
+#     'P':'+100%, -0%','Z':'+80%, -20%'}
+#     tolerancia=tole_combo.get()
+#     tolerancia=dic_tole.get(tolerancia)
+#     #setiamos la entry de Tolerancia
+#     tole_cap.set(tolerancia)
+#     in_combo
+
 
 
         if disponible==True:
@@ -147,7 +187,7 @@ def fun_sufijo(*args):
 def calculo_cap():
 
     nada= None
-	#CALCULANDO TOLERANCIA
+    #CALCULANDO TOLERANCIA
 
     #creamos un diccionario para la tolerancia
     dic_tole={'B':'0.10pf','C':'0.25pf','D':'0.5pf','E':'0.5%','F':'1%', 'G':'2%', 'H':'3%', 'J':'5%', 'K':'10%', 'M':'20%','N':'30%',
@@ -213,9 +253,9 @@ def calculo_cap():
             valor= pn+sn
             valor=float(valor)
 
-	#    if ceros == 'None':
-	#        ceros=1
-	#    else:
+    #    if ceros == 'None':
+    #        ceros=1
+    #    else:
             ceros=int(tn)
             #(1x10)^ceros
             ceros=10**ceros
@@ -322,8 +362,8 @@ def buscar_res():
 
 #Funcion de busqueda de resistores SMD
 def smd():
-	
-	
+    
+    
     smd_value=res_smd.get()
     #validamos letras minusculas
     smd_value=smd_value.upper()
@@ -333,18 +373,18 @@ def smd():
     
     #creamos un diccionario
     dic_ceros={'Z':'0.001','Y':'0.01','R':'0.01','X':'0.1','S':'0.1','A':'1','B':'10','H':'10','C':'100','D':'1000','E':'10000','F':'1000000'}
-	 
+     
 
     dic_smd={'01':'100','02':'102','03':'105','04':'107','05':'110','06':'113','07':'115','08':'118','09':'121','10':'124','11':'127','12':'130',
-			 '13':'133','14':'137', '15':'140', '16':'143', '17':'147','18':'150','19':'154','20':'158','21':'162','22':'165','23':'169','24':'174',
-			 '25':'178','26':'182', '27':'187', '28':'191', '29':'196','30':'200','31':'205','32':'210','33':'215','34':'221','35':'226','36':'232',
-			 '37':'237','38':'243', '39':'249', '40':'255', '41':'261','42':'267','43':'274','44':'280','45':'287','46':'294','47':'301','48':'309',
+             '13':'133','14':'137', '15':'140', '16':'143', '17':'147','18':'150','19':'154','20':'158','21':'162','22':'165','23':'169','24':'174',
+             '25':'178','26':'182', '27':'187', '28':'191', '29':'196','30':'200','31':'205','32':'210','33':'215','34':'221','35':'226','36':'232',
+             '37':'237','38':'243', '39':'249', '40':'255', '41':'261','42':'267','43':'274','44':'280','45':'287','46':'294','47':'301','48':'309',
              '49':'316','50':'324', '51':'332', '52':'340', '53':'348','54':'357','55':'365','56':'374','57':'383','58':'392','59':'402','60':'412',
-			 '61':'422','62':'432', '63':'442', '64':'453', '65':'464','66':'475','67':'487','68':'499','69':'511','70':'523','71':'536','72':'549',
-			 '73':'562','74':'567', '75':'590', '76':'604', '77':'619','78':'634','79':'649','80':'665','81':'681','82':'698','83':'715','84':'732',
-			 '85':'750','86':'768', '87':'787', '88':'806', '89':'825','90':'845','91':'866','92':'887','93':'909','94':'931','95':'953','96':'976'
+             '61':'422','62':'432', '63':'442', '64':'453', '65':'464','66':'475','67':'487','68':'499','69':'511','70':'523','71':'536','72':'549',
+             '73':'562','74':'567', '75':'590', '76':'604', '77':'619','78':'634','79':'649','80':'665','81':'681','82':'698','83':'715','84':'732',
+             '85':'750','86':'768', '87':'787', '88':'806', '89':'825','90':'845','91':'866','92':'887','93':'909','94':'931','95':'953','96':'976'
 
-			}   
+            }   
     
  
 
@@ -352,19 +392,19 @@ def smd():
     digit=ceros.isdigit()
     
     if digit==False:
-	    codeuno=dic_smd.get(codeuno)
-	    ceros=dic_ceros.get(ceros)
-	    print(type(ceros))
-	    ceros=ceros[1:]
+        codeuno=dic_smd.get(codeuno)
+        ceros=dic_ceros.get(ceros)
+        print(type(ceros))
+        ceros=ceros[1:]
 
 
     else:
-		#(1x10)^ceros
-	    ceros=str(10**int(ceros))
-	    ceros=ceros[1:]
-	    print(codeuno)
-	    print(ceros)
-	    print("entroo")
+        #(1x10)^ceros
+        ceros=str(10**int(ceros))
+        ceros=ceros[1:]
+        print(codeuno)
+        print(ceros)
+        print("entroo")
 
     valor=codeuno+ceros
     valor_smd=valor+ 'Ω'
@@ -385,15 +425,15 @@ def smd():
 # en otra cosa, hay que automatizar para que la variable lista tenga en valor deseado
 
     dic_smd={'01':'100','02':'102','03':'105','04':'107','05':'110','06':'113','07':'115','08':'118','09':'121','10':'124','11':'127','12':'130',
-			 '13':'133','14':'137', '15':'140', '16':'143', '17':'147','18':'150','19':'154','20':'158','21':'162','22':'165','23':'169','24':'174',
-			 '25':'178','26':'182', '27':'187', '28':'191', '29':'196','30':'200','31':'205','32':'210','33':'215','34':'221','35':'226','36':'232',
-			 '37':'237','38':'243', '39':'249', '40':'255', '41':'261','42':'267','43':'274','44':'280','45':'287','46':'294','47':'301','48':'309',
+             '13':'133','14':'137', '15':'140', '16':'143', '17':'147','18':'150','19':'154','20':'158','21':'162','22':'165','23':'169','24':'174',
+             '25':'178','26':'182', '27':'187', '28':'191', '29':'196','30':'200','31':'205','32':'210','33':'215','34':'221','35':'226','36':'232',
+             '37':'237','38':'243', '39':'249', '40':'255', '41':'261','42':'267','43':'274','44':'280','45':'287','46':'294','47':'301','48':'309',
              '49':'316','50':'324', '51':'332', '52':'340', '53':'348','54':'357','55':'365','56':'374','57':'383','58':'392','59':'402','60':'412',
-			 '61':'422','62':'432', '63':'442', '64':'453', '65':'464','66':'475','67':'487','68':'499','69':'511','70':'523','71':'536','72':'549',
-			 '73':'562','74':'567', '75':'590', '76':'604', '77':'619','78':'634','79':'649','80':'665','81':'681','82':'698','83':'715','84':'732',
-			 '85':'750','86':'768', '87':'787', '88':'806', '89':'825','90':'845','91':'866','92':'887','93':'909','94':'931','95':'953','96':'976'
+             '61':'422','62':'432', '63':'442', '64':'453', '65':'464','66':'475','67':'487','68':'499','69':'511','70':'523','71':'536','72':'549',
+             '73':'562','74':'567', '75':'590', '76':'604', '77':'619','78':'634','79':'649','80':'665','81':'681','82':'698','83':'715','84':'732',
+             '85':'750','86':'768', '87':'787', '88':'806', '89':'825','90':'845','91':'866','92':'887','93':'909','94':'931','95':'953','96':'976'
 
-			}   
+            }   
 
 lista=['100','102','105','107','110','113','115','118','121','124','127','130','133','137','140','143','147','150','154','158','162','165','169',
 '174', '178', '182','187','191','196','200','205','210','215','221','226','232','237','243','249','255','261','267','274','280','287','294','301',
@@ -421,7 +461,7 @@ class AutocompleteEntry(Entry):
         self.lb_up = False
 
     def changed(self, name, index, mode):  
-		
+        
         if self.var.get() == '':
             self.lb.destroy()
             self.lb_up = False
@@ -440,8 +480,8 @@ class AutocompleteEntry(Entry):
                 #TOMANDO EL VALOOR, el valor seleccionado es str1     
                 str1 = ''.join(words)
                 str=len(str1)
-				#guardamos el ultimo valor que suponesmo que sera menor que 7
-				#Guardamos en la variable res_smd
+                #guardamos el ultimo valor que suponesmo que sera menor que 7
+                #Guardamos en la variable res_smd
                 if str < 7:
                     res_smd.set(str1)
                     
@@ -494,8 +534,8 @@ class AutocompleteEntry(Entry):
 
 ########################################################################
 #Fin de Rutina de Autocompletado
-	
-	
+    
+    
 
 #Funcion calcular el codigo de colores
 def calculo_color():
@@ -508,7 +548,10 @@ def calculo_color():
     val3=valor_num[2:]
     val4=valor_num[3:4]
     valor=valor_num[:]
-
+    print(val1)
+    print(val2)
+    print(val3)
+    print(val4)
 
     #tamaño de la cantidad de ceros
     ceros=len(val3)
@@ -552,7 +595,7 @@ def calculo_color():
 
     #creamos un diccionario
     #Esta vez buscamos el numero y el contenido es el color
-    color_value={'1':'brown','2':'red','3':'orange','4':'yellow','5':'green','6':'blue','violet':'7','gray':'8','9':'white','0':'black'}
+    color_value={'1':'brown','2':'red','3':'orange','4':'yellow','5':'green','6':'blue','7':'violet','8':'gray','9':'white','0':'black'}
 
     tole_res={'N/A':'20%','Silver':'10%','Golden':'5%','Red':'2%','Brown':'1%','Green':'0.5%', 'Blue':'0.25%','Violet':'0.10%','Gray':'0.05%'}
 
@@ -719,6 +762,18 @@ def res_paralelo ():
 ventana =Tk()
 ventana.title("GNU Pytronic")
 
+#Tema tkinter para los objetos
+style = ThemedStyle(ventana)
+style.set_theme("alt")
+
+
+# s=ttk.Style()
+# s.theme_names()
+# #"""======== if you are under win 8.1 you must see ..
+# # ('winnative', 'clam', 'alt', 'default', 'classic', 'vista', 'xpnative'. ''arc') you can use for example 'clam' ===== """
+# s.theme_use('vista')
+
+
 #Organizando las pestañas
 notebook=ttk.Notebook(ventana)
 notebook.pack(fill='both',expand='yes')
@@ -755,6 +810,7 @@ def personalData(event):
        defaul_c=PhotoImage(file="Sources/ceramico.png")
        label_dib_cap.config(image=defaul_c)
        label_dib_cap.image =defaul_c
+       label_dib_cap.configure(bg="gainsboro")
        grafic_tools = 1
     elif event.widget.index("current") == 2:
        pestanan= 2
@@ -809,29 +865,29 @@ operativo=sys.platform
 
 
 if operativo=='linux':
-	# INFORMACION DEL COMPUTADOR GNU LINUX
-	sistema = subprocess.check_output("uname -o ", shell=True).strip();
-	distri=subprocess.check_output("uname -r ", shell=True).strip();
-	arch=subprocess.check_output("uname -m ", shell=True).strip();
-	enblanco = str.encode("  ")
-	result= sistema + enblanco + distri + enblanco +arch
-	uname=StringVar()
-	uname.set(result)
-	Label(pestana3,text='Platform:',font='Helvetica 10 bold').place(x=20,y=40)
-	Label(pestana3, textvariable=uname,font='Helvetica 10').place(x=87, y=40)
-	
-	#Tema tkinter para los objetos
-	s=ttk.Style()
-	s.theme_names()
-	#"""======== if you are under win 8.1 you must see ..
-	# ('winnative', 'clam', 'alt', 'default', 'classic', 'vista', 'xpnative') you can use for example 'clam' ===== """
-	s.theme_use('clam')
+    # INFORMACION DEL COMPUTADOR GNU LINUX
+    sistema = subprocess.check_output("uname -o ", shell=True).strip();
+    distri=subprocess.check_output("uname -r ", shell=True).strip();
+    arch=subprocess.check_output("uname -m ", shell=True).strip();
+    enblanco = str.encode("  ")
+    result= sistema + enblanco + distri + enblanco +arch
+    uname=StringVar()
+    uname.set(result)
+    Label(pestana3,text='Platform:',font='Helvetica 10 bold', bg="gainsboro").place(x=20,y=40)
+    Label(pestana3, textvariable=uname,font='Helvetica 10', bg="gainsboro").place(x=87, y=40)
+    
+    #Tema tkinter para los objetos
+#     s=ttk.Style()
+#     s.theme_names()
+#     #"""======== if you are under win 8.1 you must see ..
+#     # ('winnative', 'clam', 'alt', 'default', 'classic', 'vista', 'xpnative') you can use for example 'clam' ===== """
+#     s.theme_use('vista')
 
 
 
 else :
-	# INFORMACION DEL COMPUTADOR WINDOWS
-	print ('esta en windows')
+    # INFORMACION DEL COMPUTADOR WINDOWS
+    print ('esta en windows')
 #nombre y version de windows con 
 #WMIC OS Get Caption   
 #arquitecuta con 
@@ -839,40 +895,44 @@ else :
 
 #texto informativo
 
-Label(pestana3,text='GNU Pytronic',font='Helvetica 10 bold').place(x=20,y=60)
-Label(pestana3,text=', software developed by Ronal Forero',font='Helvetica 10').place(x=108,y=60)
-Label(pestana3,text='License:',font='Helvetica 10 bold').place(x=20,y=80)
-Label(pestana3,text='GPL V.3',font='Helvetica 10').place(x=80,y=80)
-Label(pestana3,text='Version:',font='Helvetica 10 bold').place(x=20,y=100)
-Label(pestana3,text='Beta 0.1',font='Helvetica 10').place(x=80,y=100)
-Label(pestana3,text='Version in development:',font='Helvetica 10 bold').place(x=20,y=120)
-Label(pestana3,text='Alpha 0.2',font='Helvetica 10').place(x=180,y=120)
-Label(pestana3,text='Contact:',font='Helvetica 10 bold').place(x=20,y=140)
-Label(pestana3,text='L337.ronald@gmail.com',font='Helvetica 10').place(x=80,y=140)
+
+
+
+
+Label(pestana3,text='GNU Pytronic',font='Helvetica 10 bold', bg="gainsboro").place(x=20,y=60)
+Label(pestana3,text=', software developed by Ronal Forero',font='Helvetica 10', bg="gainsboro").place(x=108,y=60)
+Label(pestana3,text='License:',font='Helvetica 10 bold', bg="gainsboro").place(x=20,y=80)
+Label(pestana3,text='GPL V.3',font='Helvetica 10', bg="gainsboro").place(x=80,y=80)
+Label(pestana3,text='Version:',font='Helvetica 10 bold', bg="gainsboro").place(x=20,y=100)
+Label(pestana3,text='Beta 0.2',font='Helvetica 10', bg="gainsboro").place(x=80,y=100)
+Label(pestana3,text='Version in development:',font='Helvetica 10 bold', bg="gainsboro").place(x=20,y=120)
+Label(pestana3,text='Alpha 0.3',font='Helvetica 10', bg="gainsboro").place(x=180,y=120)
+Label(pestana3,text='Contact:',font='Helvetica 10 bold', bg="gainsboro").place(x=20,y=140)
+Label(pestana3,text='L337.ronald@gmail.com',font='Helvetica 10', bg="gainsboro").place(x=80,y=140)
 
 #Colaboradores:
-Label(pestana3,text='Collaborators:',font='Helvetica 10 bold').place(x=20,y=250)
+Label(pestana3,text='Collaborators:',font='Helvetica 10 bold', bg="gainsboro").place(x=20,y=250)
 
 #artistas
-Label(pestana3,text='Artists:',font='Helvetica 10 bold').place(x=20,y=280)
-Label(pestana3,text='Pablo Lopez (Icon Pytronic)',font='Helvetica 10').place(x=73,y=280)
+Label(pestana3,text='Artists:',font='Helvetica 10 bold', bg="gainsboro").place(x=20,y=280)
+Label(pestana3,text='Pablo Lopez (Icon Pytronic)',font='Helvetica 10', bg="gainsboro").place(x=73,y=280)
 
 #empaquetadores
-Label(pestana3,text='Packager:',font='Helvetica 10 bold').place(x=20,y=300)
-Label(pestana3,text='Francisco de la Peña (RPM)',font='Helvetica 10').place(x=90,y=300)
+Label(pestana3,text='Packager:',font='Helvetica 10 bold', bg="gainsboro").place(x=20,y=300)
+#Label(pestana3,text='Francisco de la Peña (RPM)',font='Helvetica 10').place(x=90,y=300)
 
 #enlaces
 def callback(event):
     webbrowser.open_new(r"https://ronaldl337.wordpress.com/tag/gnu-pytronic/")
 
-link = Label(pestana3, text="GNU Pyttonics Repository", fg="blue", cursor="hand2")
+link = Label(pestana3, text="GNU Pyttonics Repository", fg="blue", cursor="hand2", bg="gainsboro")
 link.place(x=20,y=160)
 link.bind("<Button-1>", callback)
 
 def callback(event):
     webbrowser.open_new(r"https://raw.githubusercontent.com/l337quez/GNU-Pytronic/master/other%20Sources/manual.pdf")
 
-link = Label(pestana3, text="User manual", fg="blue", cursor="hand2")
+link = Label(pestana3, text="User manual", fg="blue", cursor="hand2", bg="gainsboro")
 link.place(x=20,y=180)
 link.bind("<Button-1>", callback)
 
@@ -890,11 +950,11 @@ banner_home=Label(pestana,image=banner).place(x=-2, y=15)
 #Pestaña MORE
 
 def open_transformers ():
-	os.system('python transformadores.py')
-	
-	
+    os.system('python transformadores.py')
+    
+    
 def open_coils ():
-	os.system('python inductores.py')
+    os.system('python inductores.py')
 
 pic_trans=PhotoImage(file="Sources/transformadores.png")
 Label(pestana2,image=pic_trans).place(x=31, y=20)
@@ -989,36 +1049,39 @@ Button(pestana1, text= "+", command=res_serie).place(x=370, y=360) #Boton serie
 
 #Labels
 #Labels Capacitores
-label_cchino=Label(pestana0, text="Parallel Capacitors:").place(x=10, y=340)
-label_cchino=Label(pestana0, text="Serial Capacitors:").place(x=280, y=340)
-label_cchino=Label(pestana0, text="Comercial value:").place(x=10, y=205)
-label_tc=Label(pestana0, text="Type of Capacitor:").place(x=10, y=44)
-label_voltaje=Label(pestana0, text="Voltage").place(x=110, y=138)
-label_tole=Label(pestana0, text="Tolerance").place(x=210, y=138)
-label_ca=Label(pestana0, text="Capacitance").place(x=10, y=138)
-label_code=Label(pestana0, text="Capacitor code:").place(x=140, y=44)
-Label(pestana0, text="Volts").place(x=140, y=84)
-Label(pestana0, text="Capacitance").place(x=231, y=84)
-Label(pestana0, text="Tolerance").place(x=342, y=84)
-Label(pestana0, text="Capacitor code:").place(x=210, y=270)
-Label(pestana0, text="Capacitor value:").place(x=10, y=270)
+label_cchino=Label(pestana0, text="Parallel Capacitors:", bg="gainsboro").place(x=10, y=340)
+label_cchino=Label(pestana0, text="Serial Capacitors:", bg="gainsboro").place(x=280, y=340)
+label_cchino=Label(pestana0, text="Comercial value:", bg="gainsboro").place(x=10, y=205)
+label_tc=Label(pestana0, text="Type of Capacitor:", bg="gainsboro").place(x=10, y=44)
+label_voltaje=Label(pestana0, text="Voltage", bg="gainsboro").place(x=110, y=138)
+label_tole=Label(pestana0, text="Tolerance", bg="gainsboro").place(x=210, y=138)
+label_ca=Label(pestana0, text="Capacitance", bg="gainsboro").place(x=10, y=138)
+label_code=Label(pestana0, text="Capacitor code:", bg="gainsboro").place(x=140, y=44)
+Label(pestana0, text="Volts", bg="gainsboro").place(x=140, y=84)
+Label(pestana0, text="Capacitance", bg="gainsboro").place(x=231, y=84)
+Label(pestana0, text="Tolerance", bg="gainsboro").place(x=342, y=84)
+Label(pestana0, text="Capacitor code:", bg="gainsboro").place(x=210, y=270)
+Label(pestana0, text="Capacitor value:", bg="gainsboro").place(x=10, y=270)
 #label dibujo de capacitor
 label_dib_cap=Label(pestana0)
 label_dib_cap.place(x=450, y=110)
 
 
+
+
+
 #Labels RESISTORES
 ima_resistor=PhotoImage(file="Sources/resistencia.png")
-Label(pestana1,image=ima_resistor).place(x=84, y=40)
+Label(pestana1,image=ima_resistor, bg="gainsboro").place(x=84, y=40)
 
-smd_label= Label(pestana1, textvariable=resultado_smd).place(x=290, y=200)
+smd_label= Label(pestana1, textvariable=resultado_smd, bg="gainsboro").place(x=290, y=200)
 
-Label(pestana1, text="Parallel Resistors:").place(x=10, y=340)
-Label(pestana1, text="Serial Resistors:").place(x=280, y=340)
-label_cchino=Label(pestana1, text="Comercial value:").place(x=10, y=273)
-label_tc=Label(pestana1, text="Color Code:").place(x=10, y=95)
-Label(pestana1, text="Value:").place(x=250, y=54)
-Label(pestana1, text="SMD Code:").place(x=10, y=200)
+Label(pestana1, text="Parallel Resistors:", bg="gainsboro").place(x=10, y=340)
+Label(pestana1, text="Serial Resistors:", bg="gainsboro").place(x=280, y=340)
+label_cchino=Label(pestana1, text="Comercial value:", bg="gainsboro").place(x=10, y=273)
+label_tc=Label(pestana1, text="Color Code:", bg="gainsboro").place(x=10, y=95)
+Label(pestana1, text="Value:", bg="gainsboro").place(x=250, y=54)
+Label(pestana1, text="SMD Code:", bg="gainsboro").place(x=10, y=200)
 label_ban1=Label(pestana1,  height= 2)
 label_ban1.place(x=110, y=50)
 label_ban2=Label(pestana1,  height= 2)
@@ -1030,11 +1093,11 @@ label_ban4.place(x=170, y=50)
 label_ban5=Label(pestana1, bg="gold2",  height= 2)
 label_ban5.place(x=190, y=50)
 
-Label(pestana1, text="Band 1").place(x=10, y=135)
-Label(pestana1, text="Band 2").place(x=80, y=135)
-Label(pestana1, text="Band 3").place(x=150, y=135)
-Label(pestana1, text="Band 4").place(x=220, y=135)
-Label(pestana1, text="Tolerance").place(x=290, y=135)
+Label(pestana1, text="Band 1", bg="gainsboro").place(x=10, y=135)
+Label(pestana1, text="Band 2", bg="gainsboro").place(x=80, y=135)
+Label(pestana1, text="Band 3", bg="gainsboro").place(x=150, y=135)
+Label(pestana1, text="Band 4", bg="gainsboro").place(x=220, y=135)
+Label(pestana1, text="Tolerance", bg="gainsboro").place(x=290, y=135)
 
 #COMBOBOX
 
@@ -1070,14 +1133,14 @@ tole_combo['values']=('B','C','D','E','F','G','H','J','K','M','N','P','Z')
 #Combobox  convercion pf a uf...
 combo=ttk.Combobox(pestana0, width= 2)
 combo.place(x=410, y=64)
-combo['values']=('f','mf','uf','pf','nf')
+combo['values']=('f','mf','uf','nf','pf')
 combo.current(2)
 
 #Combobox  convercion pf a uf imput comercial...
 in_combo=ttk.Combobox(pestana0, width= 2)
 in_combo.place(x=120, y=225)
-in_combo['values']=('f','mf','uf','pf','nf')
-in_combo.current(3)
+in_combo['values']=('f','mf','uf','nf','pf')
+in_combo.current(4)
 
 
 
@@ -1147,6 +1210,7 @@ list_tc.bind('<<ListboxSelect>>',select_image_cap)
 #Geometria y posicion de la ventana
 
 ventana.geometry("600x450+120+120")
+
 #icono del software 
 ventana.call('wm','iconphoto',ventana._w,PhotoImage(file='pytronics.png'))
 
