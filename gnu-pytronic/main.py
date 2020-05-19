@@ -1,14 +1,16 @@
 
 from tkinter import *
 from tkinter import ttk
-
 import os
 import sys
 import shlex, subprocess
 import re
 import webbrowser
 from tkinter import filedialog
+#Estilos para tkinter
 from ttkthemes import ThemedStyle
+#para abrir ventan transformadores
+import transformadores as sW
 
 #####################################################################
 
@@ -918,8 +920,8 @@ Label(pestana3,text='Artists:',font='Helvetica 10 bold', bg="gainsboro").place(x
 Label(pestana3,text='Pablo Lopez (Icon Pytronic)',font='Helvetica 10', bg="gainsboro").place(x=73,y=280)
 
 #empaquetadores
-Label(pestana3,text='Packager:',font='Helvetica 10 bold', bg="gainsboro").place(x=20,y=300)
-#Label(pestana3,text='Francisco de la Peña (RPM)',font='Helvetica 10').place(x=90,y=300)
+Label(pestana3,text='Packager: ',font='Helvetica 10 bold', bg="gainsboro").place(x=20,y=300)
+Label(pestana3,text='Ronal Forero (Arch Linux)',font='Helvetica 10', bg="gainsboro").place(x=90,y=300)
 
 #enlaces
 def callback(event):
@@ -950,19 +952,21 @@ banner_home=Label(pestana,image=banner).place(x=-2, y=15)
 #Pestaña MORE
 
 def open_transformers ():
-    os.system('python transformadores.py')
+    # abrimos transformadores.py esto no busca el archivo busca la clase
+    sW.SubWindow()
+    #os.system('python transformadores.py')
     
     
 def open_coils ():
     os.system('python inductores.py')
 
 pic_trans=PhotoImage(file="Sources/transformadores.png")
-Label(pestana2,image=pic_trans).place(x=31, y=20)
+Label(pestana2,image=pic_trans, bg="gainsboro").place(x=31, y=20)
 Boton_calcular=Button(pestana2, text= "Transformers", command= open_transformers).place(x=10, y=95)
 
 
 pic_coil=PhotoImage(file="Sources/inductores.png")
-Label(pestana2,image=pic_coil).place(x=165, y=40)
+Label(pestana2,image=pic_coil, bg="gainsboro").place(x=165, y=40)
 Boton_calcular=Button(pestana2, text= "Coil & Inductors", command= open_coils).place(x=140, y=95)
 
 ##############################################################################
